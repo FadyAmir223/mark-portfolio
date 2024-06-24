@@ -1,5 +1,3 @@
-import React from 'react'
-
 type ProjectTypeProps = {
   params: {
     type: 'commercial' | 'residential'

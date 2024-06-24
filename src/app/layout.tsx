@@ -25,7 +25,7 @@ export default function RootLayout({
       <body
         className={cn(
           roboto.className,
-          "text-[#F1F1F1] min-h-screen bg-[url('/images/background.jpg')] bg-cover bg-fixed",
+          "flex min-h-screen flex-col bg-[url('/images/background.jpg')] bg-cover bg-fixed text-[#F1F1F1]",
         )}
       >
         {children}
