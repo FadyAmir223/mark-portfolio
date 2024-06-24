@@ -1,9 +1,14 @@
 import './globals.css'
 
 import type { Metadata } from 'next'
-import { Inter } from 'next/font/google'
+import { Roboto } from 'next/font/google'
 
-const inter = Inter({ subsets: ['latin'] })
+import { cn } from '@/utils/cn'
+
+const roboto = Roboto({
+  weight: ['300', '400', '500', '700'],
+  subsets: ['latin'],
+})
 
 export const metadata: Metadata = {
   title: '',
@@ -17,7 +22,14 @@ export default function RootLayout({
 }>) {
   return (
     <html lang='en'>
-      <body className={inter.className}>{children}</body>
+      <body
+        className={cn(
+          roboto.className,
+          "text-[#F1F1F1] min-h-screen bg-[url('/images/background.jpg')] bg-cover bg-fixed",
+        )}
+      >
+        {children}
+      </body>
     </html>
   )
 }
