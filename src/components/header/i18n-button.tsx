@@ -1,25 +1,19 @@
 'use client'
 
-// import { usePathname } from 'next/navigation'
-// import { useRouter } from 'next/router'
-
-import { Button } from '../ui/button'
-
-// TODO: i18n
+import Link from 'next/link'
+import { usePathname } from 'next/navigation'
 
 export default function I18nButton() {
-  // const { push } = useRouter()
-  // const pathname = usePathname()
+  const pathname = usePathname()
+
+  const locale = pathname.split('/')[1] === 'en' ? 'ar' : 'en'
 
   return (
-    <Button
-      variant='outline'
-      size='sm'
-      onClick={() => {
-        // push(`/(en|ar)/${pathname.slice(3)}`)
-      }}
+    <Link
+      href={`/${locale}${pathname.slice(3)}`}
+      className='rounded-md border border-primary px-1.5 py-0.5 text-sm uppercase text-primary shadow-sm transition-colors hover:bg-primary hover:text-background'
     >
-      AR
-    </Button>
+      {locale}
+    </Link>
   )
 }

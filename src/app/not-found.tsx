@@ -1,3 +1,9 @@
 export default function NotFound() {
-  return <section>NotFound</section>
+  return (
+    <html lang='en'>
+      <body>
+        <section>NotFound</section>
+      </body>
+    </html>
+  )
 }

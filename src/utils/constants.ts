@@ -6,4 +6,6 @@ const SEARCH_PARAMS = {
 
 const assetEP = `api/assets/images`
 
-export { assetEP, SEARCH_PARAMS }
+const locales = ['en', 'ar']
+
+export { assetEP, locales, SEARCH_PARAMS }

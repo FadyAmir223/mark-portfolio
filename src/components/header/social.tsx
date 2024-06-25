@@ -41,7 +41,7 @@ export default function Social({ className }: SocialProps) {
               href={url}
               target='_blank'
               aria-label={label}
-              className='group block rounded-full border border-primary p-1 transition-opacity hover:opacity-80'
+              className='group block rounded-full border-2 border-primary p-1 transition-opacity hover:opacity-80'
             >
               <Icon className='size-[1.125rem] text-primary' />
             </a>

@@ -1,0 +1,139 @@
+{
+  "RootLayout": {
+    "metadata": {
+      "desc": "For Decoration Style Services"
+    }
+  },
+  "Header": {
+    "nav": ["Home", "Projects", "Contact"]
+  },
+  "Home": {
+    "metadata": {
+      "title": "Home",
+      "desc": "A brief about our company"
+    },
+    "hero": {
+      "title": "About M.ARC",
+      "desc": "M ARC is a company specializing in interior , exterior decoration design and creating creative wow factors, executing , coordinating finishing works with skill and innovation with shopdrawings, blending beauty and practicality to create exceptional designs that meet clients"
+    },
+    "decorations": {
+      "title": "Decoration Styles",
+      "style": "style",
+      "types": [
+        {
+          "key": "African",
+          "name": "African",
+          "desc": "The African style is simple and popular, ideal for living rooms, youth bedrooms, and cafes. It uses nature-inspired colors like orange and brown, wooden ceilings, wooden statues, and animal skin rugs. Utilize natural materials like leather, stone, plants, and soft lighting."
+        },
+        {
+          "key": "Retro",
+          "name": "Retro",
+          "desc": "Retro style blends old and new with vibrant 60s colors like yellow, orange, green, blue, and pink. The ceiling is plain, floors are wooden or light matte ceramic. Furniture pieces are unique, accessories include statues and art. Walls feature wallpaper or wood panels, and curtains are light with geometric or floral patterns."
+        },
+        {
+          "key": "Industrial",
+          "name": "Industrial",
+          "desc": "Retro style blends old and new with vibrant 60s colors like yellow, orange, green, blue, and pink. The ceiling is plain, floors are wooden or light matte ceramic. Furniture pieces are unique, accessories include statues and art. Walls feature wallpaper or wood panels, and curtains are light with geometric or floral patterns."
+        },
+        {
+          "key": "Grandmillennial",
+          "name": "Grandmillennial",
+          "desc": "Grandmillennial style blends modern simplicity with vintage charm, featuring floral patterns in curtains and rugs, light colors like beige and white, antique wood furniture, and linen and cotton fabrics. Accessories include antiques, china, and vintage chandeliers."
+        },
+        {
+          "key": "Farmhouse",
+          "name": "Farmhouse",
+          "desc": "The Farmhouse style blends simplicity, warmth, and practicality. It utilizes neutral colors, weathered wood, metal, and stone. Wooden floors, simple, comfortable furniture, and natural fabrics like cotton and linen are characteristic. Decor includes antiques, wood-burning fireplaces, and live plants. Technology is often hidden."
+        },
+        {
+          "key": "Japandi",
+          "name": "Japandi",
+          "desc": "Japandi style blends Japanese 'Wabi-Sabi' with Scandinavian design. It favors natural materials like cotton, wool, and rattan, with neutral and warm colors, avoiding bright tones. Black is a key element. Minimal clutter, respect for nature, and a mix of natural and industrial lighting are essential. Handcrafted items like crochet and pottery add artistic touches. Plants connect with nature indoors."
+        },
+        {
+          "key": "Wabi Sabi",
+          "name": "Wabi Sabi",
+          "desc": "Wabi-Sabi style embodies simplicity, tranquility, and harmony with nature. It uses earthy colors inspired by nature and natural materials like clay, stone, and wood. Natural lighting is essential, with warm industrial lighting for coziness. Accessories include pottery vases and candles, while plants play a vital role. Walls can be made of rough concrete, stone, wood, or textured wallpaper. Flooring can be aged wood or matte gray ceramic. Linen or cotton textiles are preferred, and curtains are optional if there's a natural view."
+        },
+        {
+          "key": "Scandinavian",
+          "name": "Scandinavian",
+          "desc": "Scandinavian style is about tranquility, simplicity, and natural materials in small spaces. White walls, ample natural light, and greenery are key. Warmth is added with wooden or HDF flooring, candles, and compact, practical furniture like niches. Use natural fabrics like cotton or linen. Display personal or nature photos in frames. IKEA offers many suitable furnishings."
+        },
+        {
+          "key": "Islamic",
+          "name": "Islamic",
+          "desc": "The Islamic style features vibrant colors and intricately patterned floors. It is characterized by geometric and botanical motifs on walls and doors. Lighting is warm, with bronze lanterns and wall sconces. Furniture is minimal and low to the ground with storage boxes. Accessories include lanterns, incense burners, and traditional games like chess. No sculptures or pictures are found in the decor."
+        },
+        {
+          "key": "Shabby",
+          "name": "Shabby",
+          "desc": "Shabby Chic style features pastel colors, light wood floors, and floral patterns. Cotton fabrics with vibrant colors are used for upholstery. Wallpaper and accessories incorporate floral motifs. Lighting includes decorative fixtures or candleholders."
+        },
+        {
+          "key": "Mediterranean",
+          "name": "Mediterranean",
+          "desc": "The Mediterranean style is inspired by the beauty of the Mediterranean Sea, with calming colors like white and blue, wooden or stone floors, comfortable and low furniture, and the use of natural materials like wicker and kilim. The design allows for natural light and views, with minimal need for curtains unless privacy is necessary."
+        },
+        {
+          "key": "New Classic",
+          "name": "New Classic",
+          "desc": "The Neoclassical style combines classic and modern elements, exuding luxury and elegance, suitable for any era. Key features include light and neutral colors, parquet or marble floors, wall panels with intricate details, symmetry, golden accents in accessories and furniture, wooden wall decorations, layered curtains, and art pieces on the walls."
+        },
+        {
+          "key": "Minimalist",
+          "name": "Minimalist",
+          "desc": "The Minimalist style emphasizes simplicity, neutral colors, and clean geometric shapes, often using natural materials like wood, glass, and leather. It prioritizes natural lighting and minimizes unnecessary decor."
+        },
+        {
+          "key": "Modern",
+          "name": "Modern",
+          "desc": "The Modern style is chic and minimalistic, perfect for those who appreciate simplicity. It features neutral colors, clean lines, and minimalistic furniture, often with natural materials like wood and metal. It's ideal for small spaces, with open kitchens for a sense of spaciousness. Accessories are minimal, and geometric shapes are simple yet functional."
+        },
+        {
+          "key": "Rustic",
+          "name": "Rustic",
+          "desc": "The rustic or rural style relies heavily on earthy tones and natural materials like wood, stone, leather, and fabric, giving a sense of elegance and luxury. Suitable for lovers of antique decor and simplicity, it features furniture made from natural wood."
+        },
+        {
+          "key": "Bohemian",
+          "name": "Bohemian",
+          "desc": "Bohemian style is vibrant and eclectic, ideal for travel enthusiasts and free spirits. It features bright, random colors, handmade crochet items, wooden or parquet floors, patterned rugs, and walls adorned with plants, mandalas, and macramé. Light-colored wood is preferred, creating a lively, non-routine atmosphere."
+        },
+        {
+          "key": "Boho Chic",
+          "name": "Boho Chic",
+          "desc": "Boho Chic style embraces earthy tones, natural materials, and handcrafted elements for a non-traditional and psychologically comforting living space. Incorporate colors inspired by nature, like beige, yellow, blue, turquoise, terracotta, and red, along with hardwood or HDF flooring. Furniture features light-colored wood and bamboo elements, complemented by handmade textiles like crochet and rustic patterns. Low-seated chairs or floor cushions add to the distinctive charm. Wooden ceiling panels and jute-based chandeliers enhance the rustic feel. Don't forget to include plants for a complete Boho Chic ambiance."
+        },
+        {
+          "key": "Contemporary",
+          "name": "Contemporary",
+          "desc": "Contemporary style combines simplicity and elegance with a touch of vibrancy. It features white, black, beige, gray, and brown colors, with shiny ceramic or porcelain floors and simple rugs. Walls may have large paintings or wallpaper, with light, simple curtains. Furniture is sleek, low, and exposed-legged, using velvet, linen, or wool fabrics."
+        },
+        {
+          "key": "Art Deco",
+          "name": "Art Deco",
+          "desc": "Art Deco style combines luxury and elegance with geometric details inspired by civilizations like the Egyptian. It features neutral colors, gold, silver, beige, reddish-brown, and pastel shades. Wallpaper is extensively used. The modern interpretation is very chic."
+        },
+        {
+          "key": "Bauhaus",
+          "name": "Bauhaus",
+          "desc": "Bauhaus, the precursor to minimalist and industrial styles, emphasizes simplicity and avoids clutter. It uses primary colors, white and black, with real materials like steel and brick. The design features simple geometric shapes and high-quality, multifunctional furniture, promoting positive energy."
+        },
+        {
+          "key": "Costal",
+          "name": "Costal",
+          "desc": "The coastal style is characterized by natural colors and materials, embracing sunlight and family gatherings. Large windows allow natural light and sea views, while white and blue dominate the color scheme with accents of a third color. Ceramic or porcelain floors, light and movable furniture like rattan, and light curtains complement the design. Accessorized with seashells and marine-themed artwork, it recreates the beach ambiance."
+        },
+        {
+          "key": "Classic",
+          "name": "Classic",
+          "desc": "Classic style exudes beauty, elegance, and fine details. It features warm, light colors, luxurious materials like marble and parquet wood, and emphasizes symmetry and order. High, white ceilings with intricate plasterwork, patterned wallpaper, and heavy, regal curtains are key. Accessories include statues, candelabras, and mirrors."
+        }
+      ]
+    }
+  },
+  "Index": {
+    "title": "Hello world!"
+  }
+}
