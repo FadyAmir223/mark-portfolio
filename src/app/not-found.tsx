@@ -1,8 +1,31 @@
-export default function NotFound() {
+import Image from 'next/image'
+import { NextIntlClientProvider } from 'next-intl'
+import { getMessages } from 'next-intl/server'
+
+import notFoundImg from '@/../public/images/not-found.webp'
+import Footer from '@/components/footer'
+import Header from '@/components/header/header'
+
+const locale = 'en'
+
+export default async function NotFound() {
+  const messages = await getMessages()
+
   return (
-    <html lang='en'>
-      <body>
-        <section>NotFound</section>
+    <html lang={locale}>
+      <body className="flex min-h-screen flex-col bg-[#22272D] bg-[url('/images/background.webp')] bg-cover bg-fixed text-[#F1F1F1]">
+        <NextIntlClientProvider messages={messages}>
+          <Header locale={locale} />
+          <div className='container flex grow items-center justify-center'>
+            <Image
+              src={notFoundImg}
+              alt='Not Found'
+              className='w-full md:w-4/5 lg:w-3/5'
+              sizes='100vw'
+            />
+          </div>
+          <Footer locale={locale} />
+        </NextIntlClientProvider>
       </body>
     </html>
   )

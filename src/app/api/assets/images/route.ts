@@ -5,7 +5,7 @@ import { type NextRequest, NextResponse } from 'next/server'
 import path from 'path'
 import sharp from 'sharp'
 
-import { SEARCH_PARAMS } from '@/utils/constants'
+import { ASSETS, SEARCH_PARAMS } from '@/utils/constants'
 
 /**
  * TODO
@@ -26,8 +26,7 @@ export async function GET(request: NextRequest) {
   if (!assetPath)
     return NextResponse.json({ error: 'Path is missing' }, { status: 400 })
 
-  const mainPath = '/app/uploads'
-  const originalPath = `${mainPath}/${assetPath}`
+  const originalPath = `${ASSETS.path}/${assetPath}`
 
   if (!existsSync(originalPath))
     return NextResponse.json({ error: 'Image not found' }, { status: 404 })
@@ -35,7 +34,7 @@ export async function GET(request: NextRequest) {
   const mimeType = mime.getType(originalPath)
 
   if (!mimeType)
-    return NextResponse.json({ error: 'Mime type not found' }, { status: 404 })
+    return NextResponse.json({ error: 'Mime not found' }, { status: 404 })
 
   const headers = new Headers(request.headers)
   headers.set('Content-Type', mimeType)
@@ -44,7 +43,7 @@ export async function GET(request: NextRequest) {
   const imageName = path.parse(assetPath).name
   const extension = path.extname(assetPath).slice(1)
 
-  const cachedPath = `${mainPath}/${dirPath}/${imageName}-w${width}-q${quality}.${extension}`
+  const cachedPath = `${ASSETS.path}/${dirPath}/${imageName}-w${width}-q${quality}.${extension}`
 
   if (existsSync(cachedPath))
     // @ts-ignore

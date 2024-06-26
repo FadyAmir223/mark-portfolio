@@ -1,13 +1,43 @@
+/* eslint-disable no-await-in-loop */
 /* eslint-disable no-console */
 
+import type { Locale, Project } from '@prisma/client'
 import { PrismaClient } from '@prisma/client'
 
-// import data from './data.json'
+import data from './data.json'
 
 const db = new PrismaClient()
 
 async function main() {
-  console.log()
+  for (const [type, projects] of Object.entries(data.projects)) {
+    for (const [projectName, projectData] of Object.entries(projects)) {
+      await db.project.create({
+        data: {
+          type: type as Project['type'],
+          name: projectName,
+          video: `${projectName}.mp4`,
+          images: Array.from(
+            { length: projectData.imageAmount },
+            (_, i) => `${i + 1}.webp`,
+          ),
+          localized: {
+            createMany: {
+              data: Object.entries(projectData.locale).map(
+                ([locale, { title, desc }]) => ({
+                  title,
+                  description: desc,
+                  locale: locale as Locale,
+                }),
+              ),
+            },
+          },
+        },
+        select: { id: true },
+      })
+
+      console.log(`Added: ${projectName}`)
+    }
+  }
 }
 
 main()

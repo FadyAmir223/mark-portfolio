@@ -1,9 +1,3 @@
-// This is your Prisma schema file,
-// learn more about it in the docs: https://pris.ly/d/prisma-schema
-
-// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
-// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
-
 generator client {
   provider = "prisma-client-js"
 }
@@ -15,20 +9,36 @@ datasource db {
 
 enum Type {
   COMMERCIAL
-  RESEDENTIAL
+  RESIDENTIAL
+}
+
+enum Locale {
+  AR
+  EN
 }
 
 model Project {
-  id   String @id @default(cuid())
-  type Type
-  name String
+  id        String        @id @default(cuid())
+  type      Type
+  localized ProjectI18n[]
 
-  description_ar String
-  description_en String
-
+  name   String
   video  String
   images String[]
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
+}
+
+model ProjectI18n {
+  id     String @id @default(cuid())
+  locale Locale
+
+  title       String @unique
+  description String
+
+  Project   Project? @relation(fields: [projectId], references: [id])
+  projectId String?
+
+  @@unique([projectId, locale])
 }

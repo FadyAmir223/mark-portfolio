@@ -1,1 +1,86 @@
-{}
+{
+  "projects": {
+    "COMMERCIAL": {
+      "crazy": {
+        "locale": {
+          "EN": {
+            "title": "Crazy Cafe Design",
+            "desc": "The café's design combines modern industrial style with elegance, featuring a dark ceiling, smooth concrete walls, and pink indirect lighting for a warm ambiance. Despite small bathrooms, luxurious decor with marble and wood alternatives enhances comfort. The design balances beauty and functionality, reflecting the café's unique identity and spirit."
+          },
+          "AR": {
+            "title": "'Crazy' تصميم كافيه",
+            "desc": "تصميم الكافيه يعكس فكرة عصرية تجمع بين الموسيقى الحية والأجواء الراقية بأسلوب صناعي مودرن. السقف الداكن والجدران الخرسانية مع الإضاءة الوردية تخلق جوًا دافئًا وجذابًا. الحمامات الصغيرة تبدو فاخرة باستخدام خامات عصرية وإعادة توزيع المساحات بذكاء، مما يوفر تجربة فريدة للزوار."
+          }
+        },
+        "imageAmount": 54
+      },
+      "tree": {
+        "locale": {
+          "EN": {
+            "title": "Tree clothing store design",
+            "desc": "The 'Tree' store was meticulously designed to meet customers' needs and offer an exceptional shopping experience. Careful layout separates storage, fitting rooms, displays, and cashier areas for a comprehensive view. Modernity meets sophistication with warm colors, varied materials, and innovative lighting. Display areas are functional and inviting, promoting interaction, while technology ensures elegance and reflects the 'tree' brand identity."
+          },
+          "AR": {
+            "title": "للملابس 'Tree' تصميم محل",
+            "desc": "تم تصميم متجر'Tree' بعناية ليجمع بين العصرية والرقي، بفصل مساحات المخزن وغرف التغيير والعرض والكاشير بشكل مدروس. تم استخدام مواد متنوعة وإضاءة مبتكرة لخلق تجربة تسوق مريحة ومميزة. تميز التصميم بمساحات مفتوحة ووحدات عرض عملية وجذابة، مما يعكس هوية العلامة التجارية."
+          }
+        },
+        "imageAmount": 15
+      },
+      "fish": {
+        "locale": {
+          "EN": {
+            "title": "Design of 26 July Fish Restaurant",
+            "desc": "The '26 July' restaurant was meticulously designed to offer a unique, elegant dining experience. It features distinct areas for the kitchen, dining, and cashier, with creative decor even in small spaces. Using warm colors, varied materials, and innovative lighting, the design harmoniously blends modernity and elegance, reflecting the restaurant's identity and spirit."
+          },
+          "AR": {
+            "title": "تصميم مطعم 26 يوليو للاسماك",
+            "desc": "تم تصميم مطعم '26 يوليو' بعناية ليجمع بين العصرية والأناقة، باستخدام مواد متنوعة وإضاءة مميزة، لتوفير تجربة تناول طعام استثنائية. تم فصل المطبخ ومناطق الطعام والكاشير بشكل مدروس، مع ديكورات مبتكرة حتى في الحمامات الصغيرة، مما يعكس هوية وروح العلامة التجارية للمطعم."
+          }
+        },
+        "imageAmount": 12
+      }
+    },
+    "RESIDENTIAL": {
+      "tower": {
+        "locale": {
+          "EN": {
+            "title": "Tower design",
+            "desc": "The project features an innovative tower facade addressing engineering challenges, concealing air conditioning units elegantly. Inspired by Greece's 'Selene Gate' , it incorporates blue, gray, and white hues. Modern materials like cladding and glass create a sleek appearance, while perforated panels provide sunlight and ventilation. This blend of engineering and art reflects Greek cultural heritage."
+          },
+          "AR": {
+            "title": "تصميم برج سكنى",
+            "desc": "المشروع يتميز بتصميم واجهة برج مبتكرة لإخفاء وحدات التكييف بشكل أنيق. الألوان مستوحاة من 'سيلانه جيت' في اليونان، وتم استخدام مواد عصرية مثل الكلادينج والزجاج. ألواح الكلادينج مفرغة لتوفير الشمس والتهوية، ويمنح البرج طابعًا حديثًا ويعبر عن التراث اليوناني."
+          }
+        },
+        "imageAmount": 20
+      },
+      "residential_entrance": {
+        "locale": {
+          "EN": {
+            "title": "Residential entrance design",
+            "desc": "The residential entrance reflects the residents' taste, welcoming visitors uniquely. It merges the outside world with home life, emphasizing beauty and luxury. Innovative design integrates marble and mirrors, while varied materials and indirect lighting balance function and aesthetics. The ceiling adds artistic flair, combining wood and marble for warmth and sophistication."
+          },
+          "AR": {
+            "title": "تصميم مدخل سكنى",
+            "desc": "المدخل السكني يعكس شخصية المنزل ويستقبل الزوار بأسلوب فريد يعبر عن ذوق السكان. يجمع بين العالم الخارجي والحياة الداخلية بتصميم مبتكر يستخدم الرخام والمرايا بشكل متناغم، ومواد متنوعة لتحقيق توازن بين الوظائف والجمال. السقف يضيف لمسة فنية وتجريدية، واستخدام الخشب بجانب الرخام يعزز الدفء والجاذبية."
+          }
+        },
+        "imageAmount": 6
+      },
+      "commercial_entrance": {
+        "locale": {
+          "EN": {
+            "title": "Commercial entrance design",
+            "desc": "The commercial entrance serves as a reflection of the building's personality, welcoming visitors with unique style and luxury. Innovative designs incorporate marble, mirrors, gypsum board, and indirect lighting for a balance of functionality and aesthetics. Creative murals blend marble with indirect lighting, enhancing the entrance's charm and sophistication."
+          },
+          "AR": {
+            "title": "تصميم مدخل تجارى",
+            "desc": "المدخل التجاري يعكس شخصية المكاتب والشركات، يستقبل الزوار بأسلوب فريد يعبر عن ذوق المستثمرين ويبرز الجمال والفخامة، تصميم مبتكر يستخدم الرخام والمرايا بشكل متناغم لتوسيع المساحة وتعزيز الإشراق، وتم استخدام مواد متنوعة وجدارية مبتكرة لتعزيز الجمال والفنية وتوازن بين الأصالة والحداثة بشكل ساحر."
+          }
+        },
+        "imageAmount": 9
+      }
+    }
+  }
+}

@@ -2,6 +2,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 
 import logoIcon from '@/../public/images/logo.svg'
+import type { TLocale } from '@/types/custom'
 import { cn } from '@/utils/cn'
 
 import DropdownMenu from './dropdown-menu'
@@ -9,7 +10,7 @@ import NavBar from './nav-bar'
 import Social from './social'
 
 type HomeProps = {
-  locale: 'en' | 'ar'
+  locale: TLocale
 }
 
 export default function Header({ locale }: HomeProps) {

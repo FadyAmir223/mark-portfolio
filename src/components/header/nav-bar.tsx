@@ -23,14 +23,14 @@ export default function NavBar({ className }: NavBarProps) {
   return (
     <nav className={cn('items-center', className)}>
       <ul className='flex flex-wrap items-center gap-x-10'>
-        {navs.map(({ label, url, icon: Icon }, idx) => (
-          <li key={label} className=''>
+        {navs.map(({ label, url, icon: Icon }, index) => (
+          <li key={label}>
             <Link
               href={url}
               className='flex items-center gap-x-1 text-lg tracking-wide transition-opacity hover:opacity-85'
             >
               <Icon className='size-5 text-primary' />
-              {navLabels[idx]}
+              {navLabels[index]}
             </Link>
           </li>
         ))}

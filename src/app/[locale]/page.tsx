@@ -4,12 +4,14 @@ import { useTranslations } from 'next-intl'
 import { getTranslations } from 'next-intl/server'
 
 import markPic from '@/../public/images/mark-pic.webp'
+import H1 from '@/components/h1'
 import { Puff } from '@/components/home/buff'
+import type { TLocale } from '@/types/custom'
 
 export async function generateMetadata({
   params: { locale },
 }: {
-  params: { locale: 'en' | 'ar' }
+  params: { locale: TLocale }
 }): Promise<Metadata> {
   const t = await getTranslations({ locale, namespace: 'Home' })
 
@@ -21,7 +23,7 @@ export async function generateMetadata({
 
 type HomeProps = {
   params: {
-    locale: 'en' | 'ar'
+    locale: TLocale
   }
 }
 
@@ -42,7 +44,7 @@ export default function Home({ params: { locale } }: HomeProps) {
           </p>
         </div>
 
-        <div className=''>
+        <div>
           <div className='relative'>
             <Puff visible height='340' width='340' color='#f0bc11' />
 
@@ -61,9 +63,7 @@ export default function Home({ params: { locale } }: HomeProps) {
 
       {/* decoration styles */}
       <div className='pb-12 pt-28'>
-        <h2 className='relative mb-10 pb-1 text-center text-[2rem] font-bold text-primary before:absolute before:left-1/2 before:top-full before:h-0.5 before:w-28 before:-translate-x-1/2 before:bg-primary'>
-          {t('decorations.title')}
-        </h2>
+        <H1>{t('decorations.title')}</H1>
 
         <ul className='grid grid-cols-1 gap-5 md:grid-cols-2'>
           {(

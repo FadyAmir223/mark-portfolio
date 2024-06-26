@@ -133,7 +133,22 @@
       ]
     }
   },
-  "Index": {
-    "title": "Hello world!"
+  "Projects": {
+    "metadata": {
+      "commercial": {
+        "title": "Commercial Projects",
+        "desc": "Discover our high-quality 3D models for commercial projects, including buildings, shops, offices, entrances, and more"
+      },
+      "residential": {
+        "title": "Residential Projects",
+        "desc": "Explore our extensive collection of 3D models for residential projects, featuring houses, apartments, entrances, and other living spaces. Our skilled engineers create detailed and realistic 3D renderings to help you visualize and perfect your residential designs. From modern homes to cozy apartments, find the perfect model to elevate your residential projects."
+      }
+    },
+    "title": "Projects",
+    "desc": "Our projects are divided into two main categories: commercial and residential. In the commercial sector, we provide unique designs for offices and shops based on their activities, whether they are restaurants, cafes, clothing stores, or administrative floors. For residential projects, we specialize in designing apartments, entrances, and building facades to achieve the highest levels of comfort and beauty for residents. Additionally, clients can choose their preferred design style from our 'Discover Your Style' list. We also offer engineering consulting services that include modifying apartment walls and redistributing spaces and furniture to ensure optimal use of available areas. Our goal is to provide innovative solutions that meet our clients' needs and exceed their expectations.",
+    "types": {
+      "commercial": "Commercial",
+      "residential": "Residential"
+    }
   }
 }

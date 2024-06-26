@@ -4,8 +4,14 @@ const SEARCH_PARAMS = {
   quality: 'q',
 }
 
-const assetEP = `api/assets/images`
+const assetEP = `/api/assets`
 
-const locales = ['en', 'ar']
+const ASSETS = {
+  path: '/app/uploads',
+  images: `${assetEP}/images`,
+  videos: `${assetEP}/videos`,
+}
 
-export { assetEP, locales, SEARCH_PARAMS }
+const locales = ['en', 'ar'] as const
+
+export { assetEP, ASSETS, locales, SEARCH_PARAMS }

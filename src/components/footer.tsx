@@ -3,6 +3,7 @@ import { FaLocationDot, FaPhone } from 'react-icons/fa6'
 import { MdEmail } from 'react-icons/md'
 
 import logoIcon from '@/../public/images/logo.svg'
+import type { TLocale } from '@/types/custom'
 import { cn } from '@/utils/cn'
 
 const contacts = [
@@ -12,7 +13,7 @@ const contacts = [
 ]
 
 type FooterProps = {
-  locale: 'ar' | 'en'
+  locale: TLocale
 }
 
 export default function Footer({ locale }: FooterProps) {

@@ -6,7 +6,7 @@ import { usePathname } from 'next/navigation'
 export default function I18nButton() {
   const pathname = usePathname()
 
-  const locale = pathname.split('/')[1] === 'en' ? 'ar' : 'en'
+  const locale = pathname.slice(1, 3) === 'en' ? 'ar' : 'en'
 
   return (
     <Link

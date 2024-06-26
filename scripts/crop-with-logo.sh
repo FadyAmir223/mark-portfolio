@@ -2,29 +2,28 @@
 
 set -e
 
-input_dir="/home/fezza/Downloads/fady"
 output_dir="$input_dir/output"
 
 if [ ! -d "$output_dir" ]; then
   mkdir -p "$output_dir"
 fi
 
-convert logo.png -resize 200x logo-small.png
+convert logo.webp -resize 200x logo-small.webp
 
-counter=0
-
-for input_image in "$input_dir"/*.{jpg,png,webp}; do
-  filename=$(basename "$input_image")
+echo hello
+for input_image in "$input_dir"/*.{jpg,webp}; do
+  filename=$input_image
+  echo$filename
 
   if [[ $filename == logo* || ! -f "$input_image" ]]; then
     continue
   fi 
   
-  output_image="${output_dir}/$((counter++)).${filename##*.}"
+  output_image="${output_dir}/${filename}"
   
-  convert "$input_image" -crop +29+29 -crop -29-75 +repage "$output_image"
+  convert "$input_image" -strip "$output_image"
   
-  composite -gravity north-east -geometry +0+10 logo-small.png "$output_image" "$output_image"
+  composite -gravity north-east -geometry +0+10 logo-small.webp "$output_image" "$output_image"
 done
 
-rm logo-small.png
+rm logo-small.webp

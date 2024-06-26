@@ -5,6 +5,7 @@ import { getMessages, getTranslations } from 'next-intl/server'
 
 import Footer from '@/components/footer'
 import Header from '@/components/header/header'
+import type { TLocale } from '@/types/custom'
 import { cn } from '@/utils/cn'
 import { locales } from '@/utils/constants'
 
@@ -16,7 +17,7 @@ const roboto = Roboto({
 export async function generateMetadata({
   params: { locale },
 }: {
-  params: { locale: 'en' | 'ar' }
+  params: { locale: TLocale }
 }): Promise<Metadata> {
   const t = await getTranslations({ locale, namespace: 'RootLayout' })
 
@@ -58,7 +59,7 @@ export default async function Layout({
   params: { locale },
 }: Readonly<{
   children: React.ReactNode
-  params: { locale: 'en' | 'ar' }
+  params: { locale: TLocale }
 }>) {
   const messages = await getMessages()
 
@@ -67,7 +68,7 @@ export default async function Layout({
       <body
         className={cn(
           roboto.className,
-          "flex min-h-screen flex-col bg-[url('/images/background.webp')] bg-cover bg-fixed text-[#F1F1F1]",
+          "flex min-h-screen flex-col bg-[url('/images/background.webp')] bg-[#22272D] bg-cover bg-fixed text-[#F1F1F1]",
         )}
       >
         <NextIntlClientProvider messages={messages}>

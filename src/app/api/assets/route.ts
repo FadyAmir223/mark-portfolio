@@ -1,22 +1,22 @@
-import { createReadStream, existsSync } from 'fs'
-import mime from 'mime'
-import { type NextRequest, NextResponse } from 'next/server'
-
-import { SEARCH_PARAMS } from '@/utils/constants'
-
 /*
   pros:
     free for self hosting
-    can be used for proteted assets
+    can be used for protected assets
 
   cons:
     opt out of next.js image optimization
-    so width and quality need to be implmented manullay and cahced
+    so width and quality need to be implemented manually and cached
 
   solution:
     third party CDN
     or vercel (not really a solution)
 */
+
+import { createReadStream, existsSync } from 'fs'
+import mime from 'mime'
+import { type NextRequest, NextResponse } from 'next/server'
+
+import { SEARCH_PARAMS } from '@/utils/constants'
 
 export async function GET(request: NextRequest) {
   const assetPath = request.nextUrl.searchParams.get(SEARCH_PARAMS.path)
