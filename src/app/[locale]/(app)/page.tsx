@@ -6,7 +6,8 @@ import { getTranslations } from 'next-intl/server'
 import markPic from '@/../public/images/mark-pic.webp'
 import H1 from '@/components/h1'
 import { Puff } from '@/components/home/buff'
-import type { TLocale } from '@/types/custom'
+
+import type { TLocale } from '../../../types/custom'
 
 export async function generateMetadata({
   params: { locale },

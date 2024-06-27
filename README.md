@@ -1,4 +1,5 @@
 ### TODO
+- animation for hero and projects
 - project upload
 - google translate api
 

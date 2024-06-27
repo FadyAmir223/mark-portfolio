@@ -3,8 +3,9 @@ import { FaLocationDot, FaPhone } from 'react-icons/fa6'
 import { MdEmail } from 'react-icons/md'
 
 import logoIcon from '@/../public/images/logo.svg'
-import type { TLocale } from '@/types/custom'
 import { cn } from '@/utils/cn'
+
+import type { TLocale } from '../types/custom'
 
 const contacts = [
   { text: 'Alexandria, Cairo, and Alamin', icon: FaLocationDot },

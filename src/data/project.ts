@@ -3,8 +3,8 @@ import 'server-only'
 import type { Locale, Type } from '@prisma/client'
 import { unstable_cache } from 'next/cache'
 
-import type { ProjectTypeSchema } from '@/app/[locale]/projects/[type]/page'
 import db from '@/lib/db'
+import type { ProjectTypeSchema } from '@/schema/project-types'
 
 import type { TLocale } from '../types/custom'
 

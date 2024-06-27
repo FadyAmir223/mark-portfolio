@@ -3,11 +3,12 @@ import { Roboto } from 'next/font/google'
 import { NextIntlClientProvider } from 'next-intl'
 import { getMessages, getTranslations } from 'next-intl/server'
 
-import Footer from '@/components/footer'
 import Header from '@/components/header/header'
-import type { TLocale } from '@/types/custom'
+import { Toaster } from '@/components/ui/toaster'
 import { cn } from '@/utils/cn'
 import { locales } from '@/utils/constants'
+
+import type { TLocale } from '../../types/custom'
 
 const roboto = Roboto({
   weight: ['300', '400', '500', '700'],
@@ -74,8 +75,9 @@ export default async function Layout({
         <NextIntlClientProvider messages={messages}>
           <Header locale={locale} />
           {children}
-          <Footer locale={locale} />
         </NextIntlClientProvider>
+
+        <Toaster />
       </body>
     </html>
   )

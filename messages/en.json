@@ -150,5 +150,17 @@
       "commercial": "Commercial",
       "residential": "Residential"
     }
+  },
+  "Contact": {
+    "metadata": {
+      "title": "Contact Us",
+      "desc": "Send us a message"
+    },
+    "email": "Your Email",
+    "message": {
+      "label": "Your Message",
+      "placeholder": "Type your message here"
+    },
+    "submit": "Send Email"
   }
 }

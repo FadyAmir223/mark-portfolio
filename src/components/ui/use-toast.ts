@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-shadow */
-/* eslint-disable default-case */
 /* eslint-disable @typescript-eslint/no-use-before-define */
+/* eslint-disable default-case */
 
 'use client'
 

@@ -4,12 +4,16 @@ import { notFound } from 'next/navigation'
 import { useTranslations } from 'next-intl'
 import { getTranslations } from 'next-intl/server'
 import { Suspense } from 'react'
-import { z } from 'zod'
 
 import H1 from '@/components/h1'
 import Projects from '@/components/projects/projects'
+import {
+  type ProjectTypeSchema,
+  projectTypeSchema,
+} from '@/schema/project-types'
 import type { TLocale } from '@/types/custom'
 import { cn } from '@/utils/cn'
+import { projectTypes } from '@/utils/constants'
 
 type ProjectTypeProps = {
   params: {
@@ -17,12 +21,6 @@ type ProjectTypeProps = {
     type: unknown
   }
 }
-
-const projectTypes = ['commercial', 'residential'] as const
-
-const projectTypeSchema = z.enum(projectTypes)
-
-export type ProjectTypeSchema = z.infer<typeof projectTypeSchema>
 
 export async function generateMetadata({
   params: { locale, type },

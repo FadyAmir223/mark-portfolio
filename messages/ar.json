@@ -150,5 +150,17 @@
       "commercial": "تجارى",
       "residential": "سكنى"
     }
+  },
+  "Contact": {
+    "metadata": {
+      "title": "اتصل بنا",
+      "desc": "ارسل لنا رسالة"
+    },
+    "email": "الايميل",
+    "message": {
+      "label": "رسالتك",
+      "placeholder": "اكتب رسالتك هنا"
+    },
+    "submit": "ارسل الايميل"
   }
 }
