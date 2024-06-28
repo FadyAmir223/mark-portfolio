@@ -96,7 +96,7 @@ export default function Slider({ type, projects }: SliderProps) {
                   <SwiperSlide>
                     <video
                       src={`${ASSETS.videos}?p=projects/${type}/${name}/${video}`}
-                      className='relative z-10 w-full focus:outline-0'
+                      className='relative z-10 max-h-[calc(100vh-150px)] w-full focus:outline-0'
                       controls
                       poster={`${ASSETS.images}?${SEARCH_PARAMS.path}=projects/${type}/${name}/images/${images[0]}`}
                       ref={(el) => {

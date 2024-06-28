@@ -11,8 +11,10 @@ const db = new PrismaClient()
 async function main() {
   for (const [type, projects] of Object.entries(data.projects)) {
     for (const [projectName, projectData] of Object.entries(projects)) {
-      await db.project.create({
-        data: {
+      await db.project.upsert({
+        where: { name: projectName },
+        update: {},
+        create: {
           type: type as Project['type'],
           name: projectName,
           video: `${projectName}.mp4`,

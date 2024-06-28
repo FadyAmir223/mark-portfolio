@@ -63,45 +63,40 @@ export default function ContactForm() {
   }
 
   return (
-    <main className='container mb-8 mt-16'>
-      <form action={handleSendAnEmail} className='space-y-3'>
-        <div>
-          <Label htmlFor='email' className='text-primary'>
-            {t('email')}
-          </Label>
-          <Input
-            id='email'
-            placeholder='john@gmail.com'
-            {...register('email')}
-            className='bg-neutral-800'
-          />
-          <p className='h-[1.21875rem] text-[0.8rem] font-medium text-destructive'>
-            {errors.email?.message}
-          </p>
-        </div>
+    <form action={handleSendAnEmail} className='space-y-3'>
+      <div>
+        <Label htmlFor='email' className='text-primary'>
+          {t('email')}
+        </Label>
+        <Input
+          id='email'
+          placeholder='john@gmail.com'
+          {...register('email')}
+          className='bg-neutral-800'
+        />
+        <p className='h-[1.21875rem] text-[0.8rem] font-medium text-destructive'>
+          {errors.email?.message}
+        </p>
+      </div>
 
-        <div>
-          <Label htmlFor='message' className='text-primary'>
-            {t('message.label')}
-          </Label>
-          <Textarea
-            id='message'
-            placeholder={t('message.placeholder')}
-            {...register('message')}
-            className='bg-neutral-800'
-          />
-          <p className='h-[1.21875rem] text-[0.8rem] font-medium text-destructive'>
-            {errors.message?.message}
-          </p>
-        </div>
+      <div>
+        <Label htmlFor='message' className='text-primary'>
+          {t('message.label')}
+        </Label>
+        <Textarea
+          id='message'
+          placeholder={t('message.placeholder')}
+          {...register('message')}
+          className='bg-neutral-800'
+        />
+        <p className='h-[1.21875rem] text-[0.8rem] font-medium text-destructive'>
+          {errors.message?.message}
+        </p>
+      </div>
 
-        <Button
-          className='text-black hover:bg-[#f0bb0f95]'
-          disabled={isPending}
-        >
-          {t('submit')}
-        </Button>
-      </form>
-    </main>
+      <Button className='text-black hover:bg-[#f0bb0f95]' disabled={isPending}>
+        {t('submit')}
+      </Button>
+    </form>
   )
 }

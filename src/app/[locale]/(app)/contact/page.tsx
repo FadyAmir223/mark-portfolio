@@ -19,5 +19,9 @@ export async function generateMetadata({
 }
 
 export default function Contact() {
-  return <ContactForm />
+  return (
+    <main className='container mb-8 mt-16'>
+      <ContactForm />
+    </main>
+  )
 }

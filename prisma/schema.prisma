@@ -22,8 +22,8 @@ model Project {
   type      Type
   localized ProjectI18n[]
 
-  name   String
-  video  String
+  name   String   @unique
+  video  String?
   images String[]
 
   createdAt DateTime @default(now())
@@ -34,8 +34,8 @@ model ProjectI18n {
   id     String @id @default(cuid())
   locale Locale
 
-  title       String @unique
-  description String
+  title       String
+  description String?
 
   Project   Project? @relation(fields: [projectId], references: [id])
   projectId String?
