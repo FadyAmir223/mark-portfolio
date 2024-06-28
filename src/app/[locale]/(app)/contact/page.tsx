@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { getTranslations } from 'next-intl/server'
+import { getTranslations, unstable_setRequestLocale } from 'next-intl/server'
 
 import ContactForm from '@/components/contact-form'
 
@@ -18,7 +18,13 @@ export async function generateMetadata({
   }
 }
 
-export default function Contact() {
+export default function Contact({
+  params: { locale },
+}: Readonly<{
+  params: { locale: TLocale }
+}>) {
+  unstable_setRequestLocale(locale)
+
   return (
     <main className='container mb-8 mt-16'>
       <ContactForm />

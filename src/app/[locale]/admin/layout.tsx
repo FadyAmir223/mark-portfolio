@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import { unstable_setRequestLocale } from 'next-intl/server'
 
 import type { TLocale } from '@/types/custom'
 
@@ -11,6 +12,8 @@ export default function AdminLayout({
   children: React.ReactNode
   params: { locale: TLocale }
 }>) {
+  unstable_setRequestLocale(locale)
+
   return (
     <main className='flex h-[calc(100vh-103px)]'>
       <aside className='h-full w-72 overflow-y-auto bg-background p-4'>

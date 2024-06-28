@@ -4,6 +4,7 @@ import 'swiper/css'
 import 'swiper/css/pagination'
 import 'swiper/css/navigation'
 
+import { motion } from 'framer-motion'
 import { usePathname } from 'next/navigation'
 import { useRef } from 'react'
 import { FaAngleLeft, FaAngleRight } from 'react-icons/fa6'
@@ -75,7 +76,14 @@ export default function Slider({ type, projects }: SliderProps) {
     <section className='mb-10'>
       <ul className='space-y-6'>
         {projects.map(({ id, name, images, video, localized }, index) => (
-          <li key={id} className='rounded-lg border-y-2 border-primary py-1.5'>
+          <motion.li
+            key={id}
+            className='rounded-lg border-y-2 border-primary py-1.5'
+            initial={{ opacity: 0, x: 200 * (index % 2 ? 1 : -1) }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.7 }}
+            viewport={{ once: true, amount: 0.3 }}
+          >
             <div
               className={cn(
                 'flex flex-col gap-6 rounded-lg border-x-2 border-primary p-4 ',
@@ -125,7 +133,7 @@ export default function Slider({ type, projects }: SliderProps) {
                 </Swiper>
               </div>
             </div>
-          </li>
+          </motion.li>
         ))}
       </ul>
     </section>

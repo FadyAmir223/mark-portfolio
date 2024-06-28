@@ -1,11 +1,10 @@
 import type { Metadata } from 'next'
 import Image from 'next/image'
 import { useTranslations } from 'next-intl'
-import { getTranslations } from 'next-intl/server'
+import { getTranslations, unstable_setRequestLocale } from 'next-intl/server'
 
-import markPic from '@/../public/images/mark-pic.webp'
 import H1 from '@/components/h1'
-import { Puff } from '@/components/home/buff'
+import Hero from '@/components/home/hero'
 
 import type { TLocale } from '../../../types/custom'
 
@@ -29,40 +28,16 @@ type HomeProps = {
 }
 
 export default function Home({ params: { locale } }: HomeProps) {
+  unstable_setRequestLocale(locale)
+
   const t = useTranslations('Home')
 
   return (
     <main className='container mt-16 min-h-[calc(100dvh-88px)]'>
-      {/* hero */}
-      {/* TODO: loading animation */}
       <div className='flex flex-col items-center justify-between gap-y-10 md:flex-row'>
-        <div className='text-center'>
-          <h1 className='mb-6 text-[2rem] font-bold leading-9 tracking-wider'>
-            {t('hero.title')}
-          </h1>
-          <p className='max-w-[750px] sm:text-xl sm:leading-8 sm:tracking-wide'>
-            {t('hero.desc')}
-          </p>
-        </div>
-
-        <div>
-          <div className='relative'>
-            <Puff visible height='340' width='340' color='#f0bc11' />
-
-            <Image
-              src={markPic}
-              alt='Mark Picture'
-              className='absolute left-1/2 top-1/2 -mt-3 ml-1.5 h-[300px] -translate-x-1/2 -translate-y-1/2 object-contain'
-            />
-          </div>
-
-          <h3 className='mb-2 mt-3 text-center text-2xl font-semibold tracking-wide text-primary'>
-            CEO: Arch/Mark Sabry
-          </h3>
-        </div>
+        <Hero locale={locale} />
       </div>
 
-      {/* decoration styles */}
       <div className='pb-12 pt-28'>
         <H1>{t('decorations.title')}</H1>
 

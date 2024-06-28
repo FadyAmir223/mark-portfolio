@@ -1,7 +1,11 @@
 import type { Metadata } from 'next'
 import { Roboto } from 'next/font/google'
 import { NextIntlClientProvider } from 'next-intl'
-import { getMessages, getTranslations } from 'next-intl/server'
+import {
+  getMessages,
+  getTranslations,
+  unstable_setRequestLocale,
+} from 'next-intl/server'
 
 import Header from '@/components/header/header'
 import { Toaster } from '@/components/ui/toaster'
@@ -62,6 +66,8 @@ export default async function Layout({
   children: React.ReactNode
   params: { locale: TLocale }
 }>) {
+  unstable_setRequestLocale(locale)
+
   const messages = await getMessages()
 
   return (
@@ -69,7 +75,7 @@ export default async function Layout({
       <body
         className={cn(
           roboto.className,
-          "flex min-h-screen flex-col bg-[url('/images/background.webp')] bg-[#22272D] bg-cover bg-fixed text-[#F1F1F1]",
+          "flex min-h-screen flex-col bg-[url('/images/background.webp')] bg-[#22272D] bg-cover bg-fixed text-[#F1F1F1] overflow-x-hidden",
         )}
       >
         <NextIntlClientProvider messages={messages}>

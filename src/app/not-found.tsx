@@ -1,6 +1,6 @@
 import Image from 'next/image'
 import { NextIntlClientProvider } from 'next-intl'
-import { getMessages } from 'next-intl/server'
+import { getMessages, unstable_setRequestLocale } from 'next-intl/server'
 
 import notFoundImg from '@/../public/images/not-found.webp'
 import Footer from '@/components/footer'
@@ -9,6 +9,8 @@ import Header from '@/components/header/header'
 const locale = 'en'
 
 export default async function NotFound() {
+  unstable_setRequestLocale(locale)
+
   const messages = await getMessages()
 
   return (

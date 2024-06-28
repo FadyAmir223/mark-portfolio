@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import { useTranslations } from 'next-intl'
-import { getTranslations } from 'next-intl/server'
+import { getTranslations, unstable_setRequestLocale } from 'next-intl/server'
 import { Suspense } from 'react'
 
 import H1 from '@/components/h1'
@@ -35,10 +35,14 @@ export async function generateMetadata({
   }
 }
 
-export default function ProjectType({ params }: ProjectTypeProps) {
+export default function ProjectType({
+  params: { locale, type },
+}: ProjectTypeProps) {
+  unstable_setRequestLocale(locale)
+
   const t = useTranslations('Projects')
 
-  const result = projectTypeSchema.safeParse(params.type)
+  const result = projectTypeSchema.safeParse(type)
   if (!result.success) notFound()
 
   const currType = result.data
@@ -46,18 +50,18 @@ export default function ProjectType({ params }: ProjectTypeProps) {
   return (
     <section>
       <div className='mx-auto mb-8 flex w-fit gap-x-3'>
-        {projectTypes.map((type) => (
+        {projectTypes.map((projectType) => (
           <Link
-            key={type}
-            href={`/${params.locale}/projects/${type}`}
+            key={projectType}
+            href={`/${locale}/projects/${projectType}`}
             className={cn(
               'inline-block rounded-md border border-primary px-4 py-2 font-semibold capitalize text-primary shadow-sm transition-colors hover:bg-primary hover:text-background',
-              type === currType
+              projectType === currType
                 ? 'bg-primary text-background pointer-events-none'
                 : 'hover:bg-primary hover:text-background',
             )}
           >
-            {t(`types.${type}`)}
+            {t(`types.${projectType}`)}
           </Link>
         ))}
       </div>
@@ -65,7 +69,7 @@ export default function ProjectType({ params }: ProjectTypeProps) {
       <H1>{t(`types.${currType}`)}</H1>
 
       <Suspense fallback={<div>loading...</div>}>
-        <Projects locale={params.locale} type={currType} />
+        <Projects locale={locale} type={currType} />
       </Suspense>
     </section>
   )

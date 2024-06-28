@@ -1,12 +1,18 @@
 import { useTranslations } from 'next-intl'
+import { unstable_setRequestLocale } from 'next-intl/server'
 
 import H1 from '@/components/h1'
+import type { TLocale } from '@/types/custom'
 
 export default function ProjectLayout({
   children,
-}: {
-  children: Readonly<React.ReactNode>
-}) {
+  params: { locale },
+}: Readonly<{
+  children: React.ReactNode
+  params: { locale: TLocale }
+}>) {
+  unstable_setRequestLocale(locale)
+
   const t = useTranslations('Projects')
 
   return (

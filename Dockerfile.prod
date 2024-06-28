@@ -13,7 +13,6 @@ COPY prisma ./prisma
 RUN npx prisma generate \
   && rm -rf prisma
 
-
 FROM base AS builder
 WORKDIR /app
 
