@@ -5,8 +5,9 @@ import { useTranslations } from 'next-intl'
 import { getTranslations, unstable_setRequestLocale } from 'next-intl/server'
 import { Suspense } from 'react'
 
-import H1 from '@/components/h1'
+import H2 from '@/components/h2'
 import Projects from '@/components/projects/projects'
+import ProjectsSkeleton from '@/components/projects/projects-skeleton'
 import {
   type ProjectTypeSchema,
   projectTypeSchema,
@@ -66,9 +67,9 @@ export default function ProjectType({
         ))}
       </div>
 
-      <H1>{t(`types.${currType}`)}</H1>
+      <H2>{t(`types.${currType}`)}</H2>
 
-      <Suspense fallback={<div>loading...</div>}>
+      <Suspense fallback={<ProjectsSkeleton />}>
         <Projects locale={locale} type={currType} />
       </Suspense>
     </section>

@@ -12,5 +12,11 @@ type ProjectsProps = {
 export default async function Projects({ locale, type }: ProjectsProps) {
   const projects = await getProjects(locale, type)
 
-  return <Slider type={type} projects={projects} />
+  return (
+    <section className='mb-10'>
+      <ul className='space-y-6'>
+        <Slider type={type} projects={projects} />
+      </ul>
+    </section>
+  )
 }

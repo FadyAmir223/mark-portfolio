@@ -2,6 +2,7 @@
 
 set -e
 
+input_dir=""
 output_dir="$input_dir/output"
 
 if [ ! -d "$output_dir" ]; then

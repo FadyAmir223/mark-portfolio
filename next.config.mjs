@@ -7,14 +7,9 @@ const nextConfig = {
   output: 'standalone',
   images: {
     remotePatterns: [
-      {
-        protocol: 'http',
-        hostname: 'localhost',
-      },
-      {
-        protocol: 'https',
-        hostname: 'domain.com',
-      },
+      { protocol: 'http', hostname: 'localhost' },
+      { protocol: 'http', hostname: 'marc-eg.com' },
+      { protocol: 'https', hostname: 'marc-eg.com' },
     ],
   },
 }

@@ -1,3 +1,5 @@
+/* eslint-disable global-require */
+
 import type { Config } from 'tailwindcss'
 
 const config = {
@@ -12,7 +14,7 @@ const config = {
   theme: {
     container: {
       center: true,
-      padding: '2rem',
+      padding: '1rem',
       screens: {
         md: '768px',
         lg: '976px',
@@ -77,8 +79,13 @@ const config = {
       },
     },
   },
-  // eslint-disable-next-line global-require
-  plugins: [require('tailwindcss-animate')],
+  plugins: [
+    require('tailwindcss-animate'),
+    require('tailwind-scrollbar')({
+      nocompatible: true,
+      preferredStrategy: 'pseudoelements',
+    }),
+  ],
 } satisfies Config
 
 export default config

@@ -3,7 +3,7 @@ import Image from 'next/image'
 import { useTranslations } from 'next-intl'
 import { getTranslations, unstable_setRequestLocale } from 'next-intl/server'
 
-import H1 from '@/components/h1'
+import H2 from '@/components/h2'
 import Hero from '@/components/home/hero'
 
 import type { TLocale } from '../../../types/custom'
@@ -39,7 +39,7 @@ export default function Home({ params: { locale } }: HomeProps) {
       </div>
 
       <div className='pb-12 pt-28'>
-        <H1>{t('decorations.title')}</H1>
+        <H2>{t('decorations.title')}</H2>
 
         <ul className='grid grid-cols-1 gap-5 md:grid-cols-2'>
           {(
@@ -71,7 +71,7 @@ export default function Home({ params: { locale } }: HomeProps) {
                   <h5 className='mb-1 text-lg font-bold sm:mb-2 sm:text-xl md:text-[1.375rem] lg:text-3xl'>
                     {styleWord}
                   </h5>
-                  <p className='text-[0.9375rem] sm:text-lg md:text-[0.9375rem] md:!leading-[1.125rem] lg:!leading-6'>
+                  <p className='text-[0.9375rem] sm:text-lg md:text-[0.9375rem] md:!leading-[1.125rem] lg:text-xl lg:!leading-[1.375rem]'>
                     {desc}
                   </p>
                 </div>

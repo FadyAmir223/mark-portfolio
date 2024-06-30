@@ -8,7 +8,10 @@ import { cn } from '@/utils/cn'
 import type { TLocale } from '../types/custom'
 
 const contacts = [
-  { text: 'Alexandria, Cairo, and Alamin', icon: FaLocationDot },
+  {
+    text: '17 st Abdallah Shehata miami alexandria, Alexandria, Egypt',
+    icon: FaLocationDot,
+  },
   { text: 'marksabry7395@gmail.com', icon: MdEmail },
   { text: '+201030065440 // +201277277230', icon: FaPhone },
 ]
@@ -37,7 +40,7 @@ export default function Footer({ locale }: FooterProps) {
           </div>
         </div>
 
-        <ul className='space-y-4'>
+        <ul className='space-y-4 [direction:ltr]'>
           {contacts.map(({ text, icon: Icon }) => (
             <li
               key={text}

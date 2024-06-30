@@ -20,8 +20,8 @@ export default function DropdownMenu() {
         style={{ height: isOpen ? elDiv.current?.scrollHeight : `${0}px` }}
       >
         <div className='container space-y-2 py-4'>
-          <NavBar className='flex md:hidden' />
-          <Social className='flex' />
+          <NavBar className='flex md:hidden' setOpen={setOpen} />
+          <Social className='flex' setOpen={setOpen} />
         </div>
       </div>
     </>

@@ -1,33 +1,9 @@
 import { type NextRequest, NextResponse } from 'next/server'
 import createMiddleware from 'next-intl/middleware'
 
-import { env } from './lib/env'
-import type { TLocale } from './types/custom'
-import { locales } from './utils/constants'
-
-async function encodePassword(password: string) {
-  const arrayBuffer = await crypto.subtle.digest(
-    'SHA-512',
-    new TextEncoder().encode(password),
-  )
-  return Buffer.from(arrayBuffer).toString('base64')
-}
-
-async function isAuth(request: NextRequest) {
-  const token =
-    request.headers.get('authorization') || request.headers.get('Authorization')
-
-  if (!token) return false
-
-  const [username, password] = Buffer.from(token.split(' ')[1], 'base64')
-    .toString()
-    .split(':')
-
-  return (
-    username === env.ADMIN_USERNAME &&
-    (await encodePassword(password)) === env.ADMIN_PASSWORD
-  )
-}
+import type { TLocale } from '@/types/custom'
+import { locales } from '@/utils/constants'
+import { isAuthenticated } from '@/utils/is-authenticated'
 
 export default async function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl
@@ -36,12 +12,15 @@ export default async function middleware(request: NextRequest) {
 
   if (match)
     request.nextUrl.pathname = `${pathname}/${
-      match[1] ? 'upload' : 'commercial'
+      match[1] === 'admin' ? 'upload' : 'commercial'
     }`
 
   if (
     request.nextUrl.pathname.slice(4, 9) === 'admin' &&
-    (await isAuth(request)) === false
+    (await isAuthenticated(
+      request.headers.get('authorization') ||
+        request.headers.get('Authorization'),
+    )) === false
   ) {
     return new NextResponse('Unauthorized', {
       status: 401,
@@ -52,7 +31,7 @@ export default async function middleware(request: NextRequest) {
   }
 
   // no need to over complicate
-  const defaultLocale = (request.headers.get('X-locale') || 'en') as TLocale
+  const defaultLocale = (request.headers.get('X-Locale') || 'en') as TLocale
 
   const handleI18nRouting = createMiddleware({
     locales,
@@ -60,7 +39,7 @@ export default async function middleware(request: NextRequest) {
   })
   const response = handleI18nRouting(request)
 
-  response.headers.set('X-locale', defaultLocale)
+  response.headers.set('X-Locale', defaultLocale)
 
   return response
 }

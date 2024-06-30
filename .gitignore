@@ -37,4 +37,4 @@ next-env.d.ts
 
 #custom
 uploads/
-local/
+_local/

@@ -98,12 +98,12 @@ export default function UploadForm() {
         <Input
           type='file'
           id='images'
-          required
-          className='w-fit bg-neutral-800'
-          minLength={1}
-          accept='image/*'
-          multiple
           name='images'
+          accept='image/*'
+          className='w-fit bg-neutral-800'
+          multiple
+          // minLength={1}
+          // required
         />
       </div>
 
@@ -115,15 +115,15 @@ export default function UploadForm() {
           type='file'
           id='video'
           name='video'
-          required
           accept='video/*'
+          // required
           // minLength={1}
           // max={1}
           className='w-fit bg-neutral-800'
         />
       </div>
 
-      <Select name='type'>
+      <Select name='type' required>
         <SelectTrigger className='w-[180px] bg-neutral-800'>
           <SelectValue placeholder='Select Project Type' />
         </SelectTrigger>

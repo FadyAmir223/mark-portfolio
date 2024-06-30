@@ -2,12 +2,12 @@ import type { ReactNode } from 'react'
 
 import { cn } from '@/utils/cn'
 
-type H1Props = {
+type H2Props = {
   children: ReactNode
   className?: string
 }
 
-export default function H1({ children, className }: H1Props) {
+export default function H2({ children, className }: H2Props) {
   return (
     <h2
       className={cn(

@@ -31,25 +31,25 @@ export const getProjects = unstable_cache(
       return []
     }
   },
-  // maybe both be unnecessary because of revalidatePath('/en/projects/commercial')
-  // ['projects'],
-  // { tags: ['projects'] },
+  ['projects'],
+  { tags: ['projects'] },
 )
 
 type AddProjectArgs = {
   name: string
-  type: FormDataEntryValue
+  type: Type
   locales: {
     en: {
-      title: FormDataEntryValue
-      description: FormDataEntryValue
+      title: string
+      description: string
     }
     ar: {
-      title: FormDataEntryValue
-      description: FormDataEntryValue
+      title: string
+      description: string
     }
   }
   imagesLength: number
+  video: string | undefined
 }
 
 export async function addProject({
@@ -57,26 +57,27 @@ export async function addProject({
   type,
   locales,
   imagesLength,
+  video,
 }: AddProjectArgs) {
   try {
     await db.project.create({
       data: {
         name,
-        type: type as Type,
+        type,
         images: Array.from({ length: imagesLength }, (_, i) => `${i + 1}.webp`),
-        video: `${name}.mp4`,
+        video,
         localized: {
           createMany: {
             data: [
               {
                 locale: 'EN',
-                title: locales.en.title as string,
-                description: locales.en.description as string,
+                title: locales.en.title,
+                description: locales.en.description,
               },
               {
                 locale: 'AR',
-                title: locales.ar.title as string,
-                description: locales.ar.description as string,
+                title: locales.ar.title,
+                description: locales.ar.description,
               },
             ],
           },

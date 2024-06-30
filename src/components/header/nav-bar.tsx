@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import { useTranslations } from 'next-intl'
+import type { Dispatch, SetStateAction } from 'react'
 import { AiFillHome } from 'react-icons/ai'
 import { FaPhoneSquareAlt } from 'react-icons/fa'
 import { FaBuildingWheat } from 'react-icons/fa6'
@@ -14,9 +15,10 @@ const navs = [
 
 type NavBarProps = {
   className?: string
+  setOpen?: Dispatch<SetStateAction<boolean>>
 }
 
-export default function NavBar({ className }: NavBarProps) {
+export default function NavBar({ className, setOpen }: NavBarProps) {
   const t = useTranslations('Header')
   const navLabels = t.raw('nav')
 
@@ -28,6 +30,7 @@ export default function NavBar({ className }: NavBarProps) {
             <Link
               href={url}
               className='flex items-center gap-x-1 text-lg tracking-wide transition-opacity hover:opacity-85'
+              onClick={setOpen ? () => setOpen(false) : undefined}
             >
               <Icon className='size-5 text-primary' />
               {navLabels[index]}

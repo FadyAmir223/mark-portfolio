@@ -42,9 +42,9 @@ export default function Hero({ locale }: { locale: TLocale }) {
           />
         </div>
 
-        <h3 className='mb-2 mt-3 text-center text-2xl font-semibold tracking-wide text-primary'>
+        <p className='mb-2 mt-3 text-center text-2xl font-semibold tracking-wide text-primary'>
           CEO: Arch/Mark Sabry
-        </h3>
+        </p>
       </motion.div>
     </>
   )

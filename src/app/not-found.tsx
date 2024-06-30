@@ -14,7 +14,10 @@ export default async function NotFound() {
   const messages = await getMessages()
 
   return (
-    <html lang={locale}>
+    <html
+      lang={locale}
+      className='scrollbar scrollbar-track-background scrollbar-thumb-[#f0bb0f85] scrollbar-track-rounded-full scrollbar-thumb-rounded-full scrollbar-w-2.5'
+    >
       <body className="flex min-h-screen flex-col bg-[#22272D] bg-[url('/images/background.webp')] bg-cover bg-fixed text-[#F1F1F1]">
         <NextIntlClientProvider messages={messages}>
           <Header locale={locale} />

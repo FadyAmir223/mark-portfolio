@@ -16,6 +16,7 @@ export default function BurgerIcon({ isOpen, setOpen }: BurgerIconProps) {
       variant='none'
       size='none'
       onClick={() => setOpen(!isOpen)}
+      aria-label={isOpen ? 'Close Header' : 'Open Header'}
     >
       <div className='group relative h-[15px] w-5 cursor-pointer'>
         <span

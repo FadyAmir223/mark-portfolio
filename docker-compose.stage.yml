@@ -19,16 +19,7 @@ services:
       - internal-stage
     depends_on:
       - db-stage
-    deploy:
-      mode: replicated
-      replicas: 1
-      update_config:
-        parallelism: 1
-        delay: 10s
-      restart_policy:
-        condition: on-failure
-        max_attempts: 3
-        window: 80s
+    restart: unless-stopped
 
   db-stage:
     image: postgres:16.2-alpine
@@ -44,9 +35,7 @@ services:
       - ./envs/staging/.env.staging.docker.local
     networks:
       - internal-stage
-    deploy:
-      restart_policy:
-        condition: on-failure
+    restart: unless-stopped
 
 volumes:
   db-stage-data:

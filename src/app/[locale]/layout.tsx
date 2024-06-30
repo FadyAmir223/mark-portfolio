@@ -71,7 +71,11 @@ export default async function Layout({
   const messages = await getMessages()
 
   return (
-    <html lang={locale} dir={locale === 'ar' ? 'rtl' : 'ltr'}>
+    <html
+      lang={locale}
+      dir={locale === 'ar' ? 'rtl' : 'ltr'}
+      className='scrollbar scrollbar-track-background scrollbar-thumb-[#f0bb0f85] scrollbar-track-rounded-full scrollbar-thumb-rounded-full scrollbar-w-2.5'
+    >
       <body
         className={cn(
           roboto.className,
