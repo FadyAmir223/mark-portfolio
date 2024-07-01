@@ -1,12 +1,11 @@
 import { z } from 'zod'
 
 export const contactSchema = z.object({
-  email: z
+  phone: z
     .string()
     .trim()
-    .min(1, { message: 'Email is required' })
-    .max(100)
-    .email()
+    .min(1, { message: 'Phone Number is required' })
+    .max(20, { message: "Phone Number can't exceed 20 digit" })
     .toLowerCase(),
   message: z
     .string()

@@ -3,7 +3,11 @@ import { unstable_setRequestLocale } from 'next-intl/server'
 
 import type { TLocale } from '@/types/custom'
 
-const routes = [{ label: 'Upload Project', url: 'upload' }]
+const routes = [
+  { label: 'Upload Project', url: 'upload' },
+  { label: 'Manage Projects', url: 'projects' },
+  { label: 'See Messages', url: 'messages' },
+]
 
 export default function AdminLayout({
   children,
@@ -17,7 +21,7 @@ export default function AdminLayout({
   return (
     <main className='flex h-[calc(100vh-103px)]'>
       <aside className='h-full w-72 overflow-y-auto bg-background p-4'>
-        <ul className='flex flex-col gap-y-2'>
+        <ul className='flex flex-col gap-y-3'>
           {routes.map(({ label, url }) => (
             <Link
               key={url}

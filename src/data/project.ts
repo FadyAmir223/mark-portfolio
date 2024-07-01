@@ -1,6 +1,6 @@
 import 'server-only'
 
-import type { Locale, Type } from '@prisma/client'
+import type { Locale, Project, Type } from '@prisma/client'
 import { unstable_cache } from 'next/cache'
 
 import db from '@/lib/db'
@@ -34,6 +34,23 @@ export const getProjects = unstable_cache(
   ['projects'],
   { tags: ['projects'] },
 )
+
+export function getAdminProjects(type: Project['type']) {
+  try {
+    return db.project.findMany({
+      where: { type },
+      select: {
+        id: true,
+        localized: {
+          where: { locale: 'EN' },
+          select: { title: true },
+        },
+      },
+    })
+  } catch {
+    return []
+  }
+}
 
 type AddProjectArgs = {
   name: string
@@ -87,5 +104,19 @@ export async function addProject({
     })
   } catch (e) {
     return { error: 'Failed to upload the project' }
+  }
+}
+
+export async function deleteProject(id: Project['id']) {
+  try {
+    return await db.project.delete({
+      where: { id },
+      select: {
+        name: true,
+        type: true,
+      },
+    })
+  } catch {
+    return { error: 'Could not Delete Project' }
   }
 }

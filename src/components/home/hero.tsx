@@ -5,7 +5,7 @@ import Image from 'next/image'
 import { useTranslations } from 'next-intl'
 import { Puff } from 'react-loader-spinner'
 
-import markPic from '@/../public/images/mark-pic.webp'
+import markPic from '@/../public/assets/images/mark-pic.webp'
 import type { TLocale } from '@/types/custom'
 
 export default function Hero({ locale }: { locale: TLocale }) {
@@ -38,7 +38,7 @@ export default function Hero({ locale }: { locale: TLocale }) {
           <Image
             src={markPic}
             alt='Mark Picture'
-            className='absolute left-1/2 top-1/2 -mt-3 ml-1.5 h-[300px] -translate-x-1/2 -translate-y-1/2 object-contain'
+            className='absolute left-1/2 top-1/2 -mt-2 ml-1 h-[285px] -translate-x-1/2 -translate-y-1/2 object-contain'
           />
         </div>
 

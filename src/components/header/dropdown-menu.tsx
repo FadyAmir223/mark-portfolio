@@ -15,7 +15,7 @@ export default function DropdownMenu() {
       <BurgerIcon isOpen={isOpen} setOpen={setOpen} />
 
       <div
-        className='absolute left-0 top-full z-10 h-36 w-full overflow-hidden bg-[#1d1f2085] duration-150 lg:hidden'
+        className='absolute left-0 top-full z-10 h-36 w-full overflow-hidden bg-[#1d1f2099] duration-150 lg:hidden'
         ref={elDiv}
         style={{ height: isOpen ? elDiv.current?.scrollHeight : `${0}px` }}
       >

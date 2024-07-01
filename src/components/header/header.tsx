@@ -1,7 +1,7 @@
 import Image from 'next/image'
 import Link from 'next/link'
 
-import logoIcon from '@/../public/images/logo.svg'
+import logoIcon from '@/../public/assets/images/logo.svg'
 import { cn } from '@/utils/cn'
 
 import type { TLocale } from '../../types/custom'
@@ -15,20 +15,17 @@ type HomeProps = {
 
 export default function Header({ locale }: HomeProps) {
   return (
-    <header className='relative bg-[#1d1f2085] py-3'>
+    <header className='relative bg-[#1d1f2099] py-3'>
       <div className='container flex items-center justify-between'>
         <div className='flex gap-x-14'>
-          <Link
-            href='/'
-            className='flex select-none items-center gap-x-2.5 text-left'
-          >
+          <Link href='/' className='flex select-none gap-x-3.5 text-left'>
             <Image
               src={logoIcon}
               alt='logo'
               className={cn('w-28', { 'order-1': locale === 'ar' })}
               priority
             />
-            <p className='text-primary transition-opacity hover:opacity-85'>
+            <p className='self-end text-primary transition-opacity hover:opacity-85'>
               <span className='mr-2 text-[2.125rem] font-bold leading-9'>
                 M
               </span>

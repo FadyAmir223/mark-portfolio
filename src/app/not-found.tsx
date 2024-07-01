@@ -2,7 +2,7 @@ import Image from 'next/image'
 import { NextIntlClientProvider } from 'next-intl'
 import { getMessages, unstable_setRequestLocale } from 'next-intl/server'
 
-import notFoundImg from '@/../public/images/not-found.webp'
+import notFoundImg from '@/../public/assets/images/not-found.webp'
 import Footer from '@/components/footer'
 import Header from '@/components/header/header'
 

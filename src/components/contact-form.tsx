@@ -5,7 +5,7 @@ import { useTranslations } from 'next-intl'
 import { useTransition } from 'react'
 import { useForm } from 'react-hook-form'
 
-import { sendAnEmail } from '@/actions/send-email'
+import { sendMessage } from '@/actions/messages'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
@@ -28,14 +28,14 @@ export default function ContactForm() {
   const { toast } = useToast()
   const t = useTranslations('Contact')
 
-  const handleSendAnEmail = async () => {
+  const handleSendMessage = async () => {
     const result = await trigger()
     if (!result) return
 
     const formData = getValues()
 
     startTransition(() => {
-      sendAnEmail(formData)
+      sendMessage(formData)
         .then((response) => {
           if (response?.errors) {
             Object.entries(response.errors).forEach(([field, message]) => {
@@ -55,7 +55,7 @@ export default function ContactForm() {
         .catch(() => {
           toast({
             title: 'Failed',
-            description: 'Email has not been sent',
+            description: 'Message has not been sent',
             variant: 'destructive',
           })
         })
@@ -63,19 +63,19 @@ export default function ContactForm() {
   }
 
   return (
-    <form action={handleSendAnEmail} className='space-y-3'>
+    <form action={handleSendMessage} className='space-y-3'>
       <div>
-        <Label htmlFor='email' className='text-primary'>
-          {t('email')}
+        <Label htmlFor='phone' className='text-primary'>
+          {t('phone')}
         </Label>
         <Input
-          id='email'
-          placeholder='john@gmail.com'
-          {...register('email')}
+          id='phone'
+          placeholder='013xxxxxxxx'
+          {...register('phone')}
           className='bg-neutral-800'
         />
         <p className='h-[1.21875rem] text-[0.8rem] font-medium text-destructive'>
-          {errors.email?.message}
+          {errors.phone?.message}
         </p>
       </div>
 

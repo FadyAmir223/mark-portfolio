@@ -82,5 +82,31 @@
         "imageAmount": 9
       }
     }
-  }
+  },
+  "contacts": [
+    {
+      "phone": "01300000000",
+      "message": "hello I like your work and hope to keep in touch"
+    },
+    {
+      "phone": "01300000001",
+      "message": "I have an office that I want to to see"
+    },
+    {
+      "phone": "01300000002",
+      "message": "can we get an offer for 2 locations?"
+    },
+    {
+      "phone": "01300000003",
+      "message": "when can I visit you"
+    },
+    {
+      "phone": "01300000004",
+      "message": "how much a medium hospital would cost"
+    },
+    {
+      "phone": "01300000005",
+      "message": "what I your pricing plan?"
+    }
+  ]
 }

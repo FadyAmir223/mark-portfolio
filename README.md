@@ -40,14 +40,7 @@ npm run docker:prod:up
 ```
 
 ### modifications
-decrease header opacity
-shrink mark photo and move it below
-more space between logo and 'm ark', remove items-center
 pinned project
-remove email send, replace into admin dashboard
-remove الإستايل word
-style section with projects
-add advertising video
 
 
 ### TODO

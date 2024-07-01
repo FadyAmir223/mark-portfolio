@@ -51,7 +51,7 @@ export default function ProjectType({
   return (
     <section>
       <div className='mx-auto mb-8 flex w-fit gap-x-3'>
-        {projectTypes.map((projectType) => (
+        {[...projectTypes, 'styles' as const].map((projectType) => (
           <Link
             key={projectType}
             href={`/${locale}/projects/${projectType}`}

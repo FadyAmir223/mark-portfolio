@@ -2,7 +2,7 @@
 
 import { type FormEvent, useRef, useTransition } from 'react'
 
-import { uploadProject } from '@/actions/upload-project'
+import { uploadProject } from '@/actions/project'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'

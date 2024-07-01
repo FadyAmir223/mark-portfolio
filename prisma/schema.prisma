@@ -37,8 +37,14 @@ model ProjectI18n {
   title       String
   description String?
 
-  Project   Project? @relation(fields: [projectId], references: [id])
+  Project   Project? @relation(fields: [projectId], references: [id], onDelete: Cascade)
   projectId String?
 
   @@unique([projectId, locale])
+}
+
+model Contact {
+  id      String @id @default(cuid())
+  phone   String
+  message String
 }

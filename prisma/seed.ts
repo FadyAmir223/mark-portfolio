@@ -37,8 +37,11 @@ async function main() {
         select: { id: true },
       })
 
-      console.log(`Added: ${projectName}`)
+      console.log(`Added ${type}: ${projectName}`)
     }
+
+    await db.contact.createMany({ data: data.contacts })
+    console.log('Added: contacts')
   }
 }
 
