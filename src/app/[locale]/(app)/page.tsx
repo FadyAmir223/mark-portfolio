@@ -34,6 +34,7 @@ export default function Home({ params: { locale } }: HomeProps) {
 
       <video
         src='/assets/videos/advertisement.mp4'
+        poster='/assets/images/ad-thumb.webp'
         className='mx-auto mb-12 mt-16 max-h-[90dvh]'
         controls
       >

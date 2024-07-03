@@ -1,4 +1,8 @@
-## on server
+### deps
+- node 18.18.1
+- npm 10.8.1
+- docker 26.1.2
+
 
 ### init
 ```sh
@@ -12,12 +16,12 @@ npm i -g dotenv-cli
 ```
 
 
-### build
+### build image
 ```sh
 # open db
 docker compose -f docker-compose.prod.yml up -d db-prod
 
-# reset (new)
+# reset (new volume)
 dotenv -e .env.production.local -- npx prisma migrate reset dev
 # or: seed db
 dotenv -e .env.production.local -- npx prisma db seed
@@ -29,7 +33,7 @@ npm run docker:prod:build
 
 ### compose `OR` swarm
 ```sh
-# compose
+# compose (recommended (1 node only))
 docker compose -f docker-compose.prod.yml up -d
 
 # swarm
@@ -38,9 +42,3 @@ docker network create --ingress --driver overlay ingress
 
 npm run docker:prod:up
 ```
-
-
-### TODO
-- move fractional indexing to the server (heavy deps)
-- project pagination
-- traefik config

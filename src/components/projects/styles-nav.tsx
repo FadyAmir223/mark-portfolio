@@ -15,11 +15,9 @@ type StylesNavProps = {
 export default function StylesNav({ locale }: StylesNavProps) {
   const t = useTranslations('Projects.types')
 
-  console.log(t)
-
   const type = usePathname().split('/').at(-1)
 
-  return [...projectTypes, 'styles' as const].map((projectType) => (
+  return ['styles' as const, ...projectTypes].map((projectType) => (
     <Link
       key={projectType}
       href={`/${locale}/projects/${projectType}`}

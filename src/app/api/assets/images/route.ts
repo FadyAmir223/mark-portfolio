@@ -28,8 +28,6 @@ export async function GET(request: NextRequest) {
 
   const originalPath = `${ASSETS.path}/${assetPath}`
 
-  console.log(originalPath)
-
   if (!existsSync(originalPath))
     return NextResponse.json({ error: 'Image not found' }, { status: 404 })
 

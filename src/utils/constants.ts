@@ -14,6 +14,6 @@ const ASSETS = {
 
 const locales = ['en', 'ar'] as const
 
-const projectTypes = ['commercial', 'residential'] as const
+const projectTypes = ['residential', 'commercial'] as const
 
 export { assetEP, ASSETS, locales, projectTypes, SEARCH_PARAMS }
