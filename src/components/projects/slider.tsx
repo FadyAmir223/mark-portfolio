@@ -73,6 +73,8 @@ export default function Slider({ type, projects }: SliderProps) {
   }
 
   return projects.map(({ id, name, images, video, localized }, index) => {
+    const URIname = encodeURIComponent(name)
+
     return (
       <motion.li
         key={id}
@@ -100,12 +102,12 @@ export default function Slider({ type, projects }: SliderProps) {
               {video && (
                 <SwiperSlide>
                   <video
-                    src={`${ASSETS.videos}?p=projects/${type}/${name}/${video}`}
+                    src={`${ASSETS.videos}?p=projects/${type}/${URIname}/${encodeURIComponent(video)}`}
                     className='relative z-10 max-h-[calc(100vh-150px)] w-full focus:outline-0'
                     controls
                     poster={
                       images.length > 0
-                        ? `${ASSETS.images}?${SEARCH_PARAMS.path}=projects/${type}/${name}/images/${images[0]}`
+                        ? `${ASSETS.images}?${SEARCH_PARAMS.path}=projects/${type}/${URIname}/images/${images[0]}`
                         : undefined
                     }
                     ref={(el) => {
@@ -121,7 +123,7 @@ export default function Slider({ type, projects }: SliderProps) {
               {images?.map((image) => (
                 <SwiperSlide key={image} className='min-h-full grow'>
                   <ImageApi
-                    src={`projects/${type}/${name}/images/${image}`}
+                    src={`projects/${type}/${URIname}/images/${image}`}
                     alt={`${name} snapshot details`}
                     width={16}
                     height={9}

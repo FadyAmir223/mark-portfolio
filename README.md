@@ -39,9 +39,6 @@ docker network create --ingress --driver overlay ingress
 npm run docker:prod:up
 ```
 
-### modifications
-pinned project
-
 
 ### TODO
 - traefik config

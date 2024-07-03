@@ -28,6 +28,8 @@ export async function GET(request: NextRequest) {
 
   const originalPath = `${ASSETS.path}/${assetPath}`
 
+  console.log(originalPath)
+
   if (!existsSync(originalPath))
     return NextResponse.json({ error: 'Image not found' }, { status: 404 })
 
@@ -41,9 +43,8 @@ export async function GET(request: NextRequest) {
 
   const dirPath = path.dirname(assetPath)
   const imageName = path.parse(assetPath).name
-  const extension = path.extname(assetPath).slice(1)
 
-  const cachedPath = `${ASSETS.path}/${dirPath}/${imageName}-w${width}-q${quality}.${extension}`
+  const cachedPath = `${ASSETS.path}/${dirPath}/${imageName}-w${width}-q${quality}.webp`
 
   if (existsSync(cachedPath))
     // @ts-ignore

@@ -2,11 +2,17 @@
 
 import { useRef, useState } from 'react'
 
+import type { TLocale } from '@/types/custom'
+
 import BurgerIcon from './burger-icon'
 import NavBar from './nav-bar'
 import Social from './social'
 
-export default function DropdownMenu() {
+type DropdownMenuProps = {
+  locale: TLocale
+}
+
+export default function DropdownMenu({ locale }: DropdownMenuProps) {
   const [isOpen, setOpen] = useState(false)
   const elDiv = useRef<HTMLDivElement | null>(null)
 
@@ -20,7 +26,11 @@ export default function DropdownMenu() {
         style={{ height: isOpen ? elDiv.current?.scrollHeight : `${0}px` }}
       >
         <div className='container space-y-2 py-4'>
-          <NavBar className='flex md:hidden' setOpen={setOpen} />
+          <NavBar
+            locale={locale}
+            className='flex md:hidden'
+            setOpen={setOpen}
+          />
           <Social className='flex' setOpen={setOpen} />
         </div>
       </div>

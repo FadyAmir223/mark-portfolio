@@ -1,13 +1,7 @@
-import Link from 'next/link'
 import { unstable_setRequestLocale } from 'next-intl/server'
 
+import AdminNav from '@/components/admin/admin-nav'
 import type { TLocale } from '@/types/custom'
-
-const routes = [
-  { label: 'Upload Project', url: 'upload' },
-  { label: 'Manage Projects', url: 'projects' },
-  { label: 'See Messages', url: 'messages' },
-]
 
 export default function AdminLayout({
   children,
@@ -22,15 +16,7 @@ export default function AdminLayout({
     <main className='flex h-[calc(100vh-103px)]'>
       <aside className='h-full w-72 overflow-y-auto bg-background p-4'>
         <ul className='flex flex-col gap-y-3'>
-          {routes.map(({ label, url }) => (
-            <Link
-              key={url}
-              href={`/${locale}/admin/${url}`}
-              className='rounded-md bg-zinc-700 px-4 py-2 transition-colors hover:bg-zinc-700/80'
-            >
-              {label}
-            </Link>
-          ))}
+          <AdminNav />
         </ul>
       </aside>
 

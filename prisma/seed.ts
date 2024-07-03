@@ -17,10 +17,11 @@ async function main() {
         create: {
           type: type as Project['type'],
           name: projectName,
+          order: projectData.order,
           video: `${projectName}.mp4`,
           images: Array.from(
             { length: projectData.imageAmount },
-            (_, i) => `${i + 1}.webp`,
+            (_, index) => `${index + 1}.jpg`,
           ),
           localized: {
             createMany: {

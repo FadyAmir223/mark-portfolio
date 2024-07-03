@@ -37,7 +37,7 @@ export default function Styles({ params: { locale } }: StylesProps) {
               className='group relative h-[230px] overflow-hidden rounded-md border-2 border-primary transition-transform duration-500 hover:scale-105 sm:h-[275px] md:h-[315px] lg:h-[410px]'
             >
               <Image
-                src={`/images/style-types/${key.replace(' ', '-')}.webp`}
+                src={`/assets/images/style-types/${key.replace(' ', '-')}.webp`}
                 alt={styleWord}
                 fill
                 className='object-cover'

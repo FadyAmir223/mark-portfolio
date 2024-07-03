@@ -14,9 +14,9 @@ export default function Layout({
   unstable_setRequestLocale(locale)
 
   return (
-    <>
+    <div className="bg-[url('/assets/images/background.webp')] bg-cover bg-fixed">
       {children}
       <Footer locale={locale} />
-    </>
+    </div>
   )
 }

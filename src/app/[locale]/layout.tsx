@@ -79,7 +79,7 @@ export default async function Layout({
       <body
         className={cn(
           roboto.className,
-          "flex min-h-screen flex-col bg-[url('/assets/images/background.webp')] bg-[#22272D] bg-cover bg-fixed text-[#F1F1F1] overflow-x-hidden",
+          'flex min-h-screen flex-col bg-[#22272D] text-[#F1F1F1] overflow-x-hidden',
         )}
       >
         <NextIntlClientProvider messages={messages}>

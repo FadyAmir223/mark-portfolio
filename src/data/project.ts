@@ -1,23 +1,25 @@
 import 'server-only'
 
 import type { Locale, Project, Type } from '@prisma/client'
+import { generateKeyBetween } from 'fractional-indexing'
 import { unstable_cache } from 'next/cache'
 
 import db from '@/lib/db'
 import type { ProjectTypeSchema } from '@/schema/project-types'
-
-import type { TLocale } from '../types/custom'
+import type { TLocale } from '@/types/custom'
+import { fractionIndexCompare } from '@/utils/sort-fractional-indexing'
 
 export const getProjects = unstable_cache(
   async (locale: TLocale, type: ProjectTypeSchema) => {
     try {
-      return await db.project.findMany({
+      const projects = await db.project.findMany({
         where: { type: type.toUpperCase() as Type },
         select: {
           id: true,
           name: true,
           video: true,
           images: true,
+          order: true,
           localized: {
             where: { locale: locale.toUpperCase() as Locale },
             select: {
@@ -27,6 +29,8 @@ export const getProjects = unstable_cache(
           },
         },
       })
+
+      return projects.sort(fractionIndexCompare)
     } catch {
       return []
     }
@@ -35,18 +39,21 @@ export const getProjects = unstable_cache(
   { tags: ['projects'] },
 )
 
-export function getAdminProjects(type: Project['type']) {
+export async function getAdminProjects(type: Project['type']) {
   try {
-    return db.project.findMany({
+    const projects = await db.project.findMany({
       where: { type },
       select: {
         id: true,
+        order: true,
         localized: {
           where: { locale: 'EN' },
           select: { title: true },
         },
       },
     })
+
+    return projects.sort(fractionIndexCompare)
   } catch {
     return []
   }
@@ -65,7 +72,7 @@ type AddProjectArgs = {
       description: string
     }
   }
-  imagesLength: number
+  imagesPathList: string[]
   video: string | undefined
 }
 
@@ -73,16 +80,24 @@ export async function addProject({
   name,
   type,
   locales,
-  imagesLength,
+  imagesPathList,
   video,
 }: AddProjectArgs) {
   try {
+    const [{ order }] = await db.project.findMany({
+      where: { type },
+      select: { order: true },
+      orderBy: { order: 'desc' },
+      take: 1,
+    })
+
     await db.project.create({
       data: {
         name,
         type,
-        images: Array.from({ length: imagesLength }, (_, i) => `${i + 1}.webp`),
+        images: imagesPathList,
         video,
+        order: generateKeyBetween(order, null),
         localized: {
           createMany: {
             data: [
@@ -118,5 +133,17 @@ export async function deleteProject(id: Project['id']) {
     })
   } catch {
     return { error: 'Could not Delete Project' }
+  }
+}
+
+export async function reorderAProject(id: Project['id'], keyBetween: string) {
+  try {
+    return await db.project.update({
+      where: { id },
+      data: { order: keyBetween },
+      select: { type: true },
+    })
+  } catch {
+    return { error: 'Could not Reorder the Project' }
   }
 }

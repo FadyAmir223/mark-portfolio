@@ -4,6 +4,8 @@ import ProjectsList from '@/components/admin/projects-list'
 import { getAdminProjects } from '@/data/project'
 import { projectTypes } from '@/utils/constants'
 
+export const dynamic = 'force-dynamic'
+
 export default async function Projects() {
   const [commercial, residential] = await Promise.all(
     projectTypes.map((type) =>

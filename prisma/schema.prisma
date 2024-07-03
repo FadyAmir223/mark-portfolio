@@ -25,9 +25,7 @@ model Project {
   name   String   @unique
   video  String?
   images String[]
-
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
+  order  String
 }
 
 model ProjectI18n {

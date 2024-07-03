@@ -18,7 +18,10 @@ export default function Header({ locale }: HomeProps) {
     <header className='relative bg-[#1d1f2099] py-3'>
       <div className='container flex items-center justify-between'>
         <div className='flex gap-x-14'>
-          <Link href='/' className='flex select-none gap-x-3.5 text-left'>
+          <Link
+            href={`/${locale}`}
+            className='flex select-none gap-x-3.5 text-left'
+          >
             <Image
               src={logoIcon}
               alt='logo'
@@ -33,12 +36,12 @@ export default function Header({ locale }: HomeProps) {
             </p>
           </Link>
 
-          <NavBar className='hidden md:flex' />
+          <NavBar locale={locale} className='hidden md:flex' />
         </div>
 
         <Social className='hidden lg:flex' />
 
-        <DropdownMenu />
+        <DropdownMenu locale={locale} />
       </div>
     </header>
   )

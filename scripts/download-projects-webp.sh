@@ -31,7 +31,7 @@ download_project tree 15
 download_project crazy 54
 
 
-residential
+# residential
 mkdir residential
 cd residential
 

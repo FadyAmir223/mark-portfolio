@@ -1,5 +1,4 @@
 import type { Metadata } from 'next'
-import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import { useTranslations } from 'next-intl'
 import { getTranslations, unstable_setRequestLocale } from 'next-intl/server'
@@ -13,8 +12,6 @@ import {
   projectTypeSchema,
 } from '@/schema/project-types'
 import type { TLocale } from '@/types/custom'
-import { cn } from '@/utils/cn'
-import { projectTypes } from '@/utils/constants'
 
 type ProjectTypeProps = {
   params: {
@@ -50,23 +47,6 @@ export default function ProjectType({
 
   return (
     <section>
-      <div className='mx-auto mb-8 flex w-fit gap-x-3'>
-        {[...projectTypes, 'styles' as const].map((projectType) => (
-          <Link
-            key={projectType}
-            href={`/${locale}/projects/${projectType}`}
-            className={cn(
-              'inline-block rounded-md border border-primary px-4 py-2 font-semibold capitalize text-primary shadow-sm transition-colors hover:bg-primary hover:text-background',
-              projectType === currType
-                ? 'bg-primary text-background pointer-events-none'
-                : 'hover:bg-primary hover:text-background',
-            )}
-          >
-            {t(`types.${projectType}`)}
-          </Link>
-        ))}
-      </div>
-
       <H2>{t(`types.${currType}`)}</H2>
 
       <Suspense fallback={<ProjectsSkeleton />}>

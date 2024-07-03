@@ -5,9 +5,9 @@ import { existsSync } from 'fs'
 import { mkdir, rm, writeFile } from 'fs/promises'
 import { revalidatePath } from 'next/cache'
 import { headers } from 'next/headers'
-import sharp from 'sharp'
+import path from 'path'
 
-import { addProject, deleteProject } from '@/data/project'
+import { addProject, deleteProject, reorderAProject } from '@/data/project'
 import { ASSETS, locales } from '@/utils/constants'
 import { isAuthenticated } from '@/utils/is-authenticated'
 
@@ -45,11 +45,19 @@ export async function uploadProject(formData: FormData) {
 
   if (!existsSync(imagesPath)) await mkdir(imagesPath, { recursive: true })
 
-  data.images?.forEach(async (image, index) => {
-    const imageBuffer = Buffer.from(await image.arrayBuffer())
-    const webpImage = sharp(imageBuffer).webp()
-    await writeFile(`${imagesPath}/${index + 1}.webp`, webpImage)
-  })
+  const imagesPathList = data.images.map(
+    ({ name: _name }, index) =>
+      `${index + 1}${path.extname(_name).toLowerCase()}`,
+  )
+
+  await Promise.all(
+    data.images.map(async (image, index) => {
+      await writeFile(
+        `${imagesPath}/${imagesPathList[index]}`,
+        Buffer.from(await image.arrayBuffer()),
+      )
+    }),
+  )
 
   if (data.video)
     await writeFile(
@@ -61,17 +69,18 @@ export async function uploadProject(formData: FormData) {
     name,
     type: data.type,
     locales: data.locales,
-    imagesLength: data.images?.length,
+    imagesPathList,
     video: data.video.size ? `${name}.mp4` : undefined,
   })
   if (additionResponse?.error) return { error: additionResponse.error }
 
   const type = data.type.toLowerCase()
+
   locales.forEach((locale) => {
-    revalidatePath(`/${locale}/projects/${type}`, 'page')
+    revalidatePath(`/${locale}/projects/${type}`)
   })
 
-  return { message: 'Project has bee uploaded' }
+  return { message: 'Project has been uploaded' }
 }
 
 export async function deleteAdminProject(id: Project['id']) {
@@ -94,6 +103,24 @@ export async function deleteAdminProject(id: Project['id']) {
   revalidatePath('/[locale]/admin/projects', 'page')
 
   locales.forEach((locale) => {
-    revalidatePath(`/${locale}/projects/${typeL}`, 'page')
+    revalidatePath(`/${locale}/projects/${typeL}`)
+  })
+}
+
+export async function reorderProject(id: Project['id'], keyBetween: string) {
+  if (
+    (await isAuthenticated(
+      headers().get('authorization') || headers().get('Authorization'),
+    )) === false
+  )
+    return { error: 'Permission Denied' }
+
+  const projectReordered = await reorderAProject(id, keyBetween)
+  if ('error' in projectReordered) return { error: projectReordered.error }
+
+  const typeL = projectReordered.type.toLowerCase()
+
+  locales.forEach((locale) => {
+    revalidatePath(`/${locale}/projects/${typeL}`)
   })
 }
