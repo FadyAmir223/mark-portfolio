@@ -2,7 +2,6 @@
 
 import type { DropResult } from '@hello-pangea/dnd'
 import { DragDropContext, Draggable, Droppable } from '@hello-pangea/dnd'
-import { generateKeyBetween } from 'fractional-indexing'
 import { useOptimistic, useTransition } from 'react'
 
 import { deleteAdminProject, reorderProject } from '@/actions/project'
@@ -51,18 +50,14 @@ export default function ProjectsList({ projects }: ProjectsListProps) {
 
     const columnProjects = reorderedProjects[indexOfType].data
 
-    const keyBetween = generateKeyBetween(
-      columnProjects[destination.index - 1]?.order ?? null,
-      columnProjects[destination.index + 1]?.order ?? null,
-    )
-    columnProjects[destination.index].order = keyBetween
-
     const { id } = columnProjects[destination.index]
+    const start = columnProjects[destination.index - 1]?.order
+    const end = columnProjects[destination.index + 1]?.order
 
     startTransition(() => {
       reorderProjects(reorderedProjects)
 
-      reorderProject(id, keyBetween)
+      reorderProject({ id, start, end })
         .then((response) => {
           if (response?.error)
             toast({

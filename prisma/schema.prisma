@@ -45,4 +45,6 @@ model Contact {
   id      String @id @default(cuid())
   phone   String
   message String
+
+  @@unique([phone, message])
 }

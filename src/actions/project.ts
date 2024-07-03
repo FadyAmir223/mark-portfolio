@@ -1,6 +1,7 @@
 'use server'
 
 import type { Project, Type } from '@prisma/client'
+import { generateKeyBetween } from 'fractional-indexing'
 import { existsSync } from 'fs'
 import { mkdir, rm, writeFile } from 'fs/promises'
 import { revalidatePath } from 'next/cache'
@@ -107,13 +108,21 @@ export async function deleteAdminProject(id: Project['id']) {
   })
 }
 
-export async function reorderProject(id: Project['id'], keyBetween: string) {
+type ReorderProjectArgs = {
+  id: Project['id']
+  start: string | null
+  end: string | null
+}
+
+export async function reorderProject({ id, start, end }: ReorderProjectArgs) {
   if (
     (await isAuthenticated(
       headers().get('authorization') || headers().get('Authorization'),
     )) === false
   )
     return { error: 'Permission Denied' }
+
+  const keyBetween = generateKeyBetween(start, end)
 
   const projectReordered = await reorderAProject(id, keyBetween)
   if ('error' in projectReordered) return { error: projectReordered.error }

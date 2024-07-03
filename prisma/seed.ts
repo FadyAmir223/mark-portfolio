@@ -40,10 +40,17 @@ async function main() {
 
       console.log(`Added ${type}: ${projectName}`)
     }
-
-    await db.contact.createMany({ data: data.contacts })
-    console.log('Added: contacts')
   }
+
+  data.contacts.forEach(async ({ phone, message }) => {
+    await db.contact.upsert({
+      where: { phone_message: { phone, message } },
+      update: {},
+      create: { phone, message },
+    })
+
+    console.log(`Added contact: ${phone}`)
+  })
 }
 
 main()

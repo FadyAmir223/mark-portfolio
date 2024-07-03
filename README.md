@@ -41,4 +41,6 @@ npm run docker:prod:up
 
 
 ### TODO
+- move fractional indexing to the server (heavy deps)
+- project pagination
 - traefik config
