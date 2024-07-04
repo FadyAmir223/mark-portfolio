@@ -24,13 +24,11 @@ ENV NEXT_TELEMETRY_DISABLED 1
 RUN --mount=type=secret,id=ENV_WITH_SECRETS,required \
   source /run/secrets/ENV_WITH_SECRETS && \
   DATABASE_URL=$DATABASE_URL \
-  RESEND_API_KEY=$RESEND_API_KEY \
-  SENDER_EMAIL=$SENDER_EMAIL \
   ADMIN_USERNAME=$ADMIN_USERNAME \
   ADMIN_PASSWORD=$ADMIN_PASSWORD \
   NEXT_PUBLIC_SITE_URL=$NEXT_PUBLIC_SITE_URL \
-  npm run build \
-  && rm -rf node_modules
+  npm run build && \
+  rm -rf node_modules
 
 FROM base AS runner
 WORKDIR /app
@@ -46,7 +44,6 @@ COPY --from=builder --chown=node:node /app/prisma prisma
 COPY --from=builder --chown=node:node /app/uploads ./uploads
 
 # RUN chmod 766 -R uploads
-
 # USER node
 
 EXPOSE 3000

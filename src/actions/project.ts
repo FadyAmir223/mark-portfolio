@@ -51,6 +51,7 @@ export async function uploadProject(formData: FormData) {
       `${index + 1}${path.extname(_name).toLowerCase()}`,
   )
 
+  // TODO: remove metadata before save
   await Promise.all(
     data.images.map(async (image, index) => {
       await writeFile(

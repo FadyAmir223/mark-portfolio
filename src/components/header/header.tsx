@@ -2,9 +2,9 @@ import Image from 'next/image'
 import Link from 'next/link'
 
 import logoIcon from '@/../public/assets/images/logo.svg'
+import type { TLocale } from '@/types/custom'
 import { cn } from '@/utils/cn'
 
-import type { TLocale } from '../../types/custom'
 import DropdownMenu from './dropdown-menu'
 import NavBar from './nav-bar'
 import Social from './social'

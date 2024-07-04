@@ -22,7 +22,7 @@ export default function StylesNav({ locale }: StylesNavProps) {
       key={projectType}
       href={`/${locale}/projects/${projectType}`}
       className={cn(
-        'inline-block rounded-md text-center border border-primary px-4 py-2 font-semibold capitalize text-primary shadow-sm transition-colors hover:bg-primary hover:text-background',
+        'inline-block rounded-md text-center border border-primary px-4 py-2 font-semibold capitalize text-primary shadow-sm transition-colors hover:bg-primary hover:text-background self-center',
         projectType === type
           ? 'bg-primary text-background pointer-events-none'
           : 'hover:bg-primary hover:text-background',

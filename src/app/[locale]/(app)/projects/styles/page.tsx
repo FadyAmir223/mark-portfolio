@@ -1,9 +1,15 @@
+import type { Metadata } from 'next'
 import Image from 'next/image'
 import { useTranslations } from 'next-intl'
 import { unstable_setRequestLocale } from 'next-intl/server'
 
 import H2 from '@/components/h2'
 import type { TLocale } from '@/types/custom'
+
+export const metadata: Metadata = {
+  title: 'Decoration Styles',
+  description: 'Choose Your Preferred Style',
+}
 
 type StylesProps = {
   params: {
@@ -45,9 +51,9 @@ export default function Styles({ params: { locale } }: StylesProps) {
               />
 
               <div className='absolute inset-0 -translate-y-full overflow-hidden bg-[#f8d7da95] p-2 text-center text-black transition-transform duration-500 group-hover:translate-y-0'>
-                <h5 className='mb-1 text-lg font-bold sm:mb-2 sm:text-xl md:text-[1.375rem] lg:text-3xl'>
+                <span className='mb-1 block text-lg font-bold sm:mb-2 sm:text-xl md:text-[1.375rem] lg:text-3xl'>
                   {styleWord}
-                </h5>
+                </span>
                 <p className='text-[0.9375rem] sm:text-lg md:text-[0.9375rem] md:!leading-[1.125rem] lg:text-xl lg:!leading-[1.375rem]'>
                   {desc}
                 </p>

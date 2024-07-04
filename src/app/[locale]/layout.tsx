@@ -9,14 +9,14 @@ import {
 
 import Header from '@/components/header/header'
 import { Toaster } from '@/components/ui/toaster'
+import type { TLocale } from '@/types/custom'
 import { cn } from '@/utils/cn'
 import { locales } from '@/utils/constants'
-
-import type { TLocale } from '../../types/custom'
 
 const roboto = Roboto({
   weight: ['300', '400', '500', '700'],
   subsets: ['latin'],
+  display: 'swap',
 })
 
 export async function generateMetadata({

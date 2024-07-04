@@ -1,8 +1,7 @@
 import type { Dispatch, SetStateAction } from 'react'
 
+import { Button } from '@/components/ui/button'
 import { cn } from '@/utils/cn'
-
-import { Button } from '../ui/button'
 
 type BurgerIconProps = {
   isOpen: boolean

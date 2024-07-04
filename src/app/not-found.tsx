@@ -1,3 +1,4 @@
+import type { Metadata } from 'next'
 import Image from 'next/image'
 import { NextIntlClientProvider } from 'next-intl'
 import { getMessages, unstable_setRequestLocale } from 'next-intl/server'
@@ -6,9 +7,14 @@ import notFoundImg from '@/../public/assets/images/not-found.webp'
 import Footer from '@/components/footer'
 import Header from '@/components/header/header'
 
-const locale = 'en'
+export const metadata: Metadata = {
+  title: 'Not Found',
+  description: "This Page Doesn't exist",
+}
 
 export default async function NotFound() {
+  const locale = 'en'
+
   unstable_setRequestLocale(locale)
 
   const messages = await getMessages()
@@ -27,6 +33,7 @@ export default async function NotFound() {
               alt='Not Found'
               className='w-full md:w-4/5 lg:w-3/5'
               sizes='100vw'
+              priority
             />
           </div>
           <Footer locale={locale} />

@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import { getTranslations, unstable_setRequestLocale } from 'next-intl/server'
 
 import Hero from '@/components/home/hero'
+import VideoAd from '@/components/home/video-ad'
 import type { TLocale } from '@/types/custom'
 
 export async function generateMetadata({
@@ -32,14 +33,7 @@ export default function Home({ params: { locale } }: HomeProps) {
         <Hero locale={locale} />
       </div>
 
-      <video
-        src='/assets/videos/advertisement.mp4'
-        poster='/assets/images/ad-thumb.webp'
-        className='mx-auto mb-12 mt-16 max-h-[90dvh]'
-        controls
-      >
-        <track kind='captions' />
-      </video>
+      <VideoAd />
     </main>
   )
 }

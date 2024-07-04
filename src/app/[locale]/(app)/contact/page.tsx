@@ -2,8 +2,7 @@ import type { Metadata } from 'next'
 import { getTranslations, unstable_setRequestLocale } from 'next-intl/server'
 
 import ContactForm from '@/components/contact-form'
-
-import type { TLocale } from '../../../../types/custom'
+import type { TLocale } from '@/types/custom'
 
 export async function generateMetadata({
   params: { locale },

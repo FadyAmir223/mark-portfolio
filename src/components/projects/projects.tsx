@@ -1,7 +1,7 @@
 import { getProjects } from '@/data/project'
 import type { ProjectTypeSchema } from '@/schema/project-types'
+import type { TLocale } from '@/types/custom'
 
-import type { TLocale } from '../../types/custom'
 import Slider from './slider'
 
 type ProjectsProps = {

@@ -10,13 +10,12 @@ import { useRef } from 'react'
 import { FaAngleLeft, FaAngleRight } from 'react-icons/fa6'
 import { Swiper, SwiperSlide, useSwiper } from 'swiper/react'
 
+import ImageApi from '@/components/image'
 import type { getProjects } from '@/data/project'
 import type { ProjectTypeSchema } from '@/schema/project-types'
+import type { TLocale } from '@/types/custom'
 import { cn } from '@/utils/cn'
 import { ASSETS, SEARCH_PARAMS } from '@/utils/constants'
-
-import type { TLocale } from '../../types/custom'
-import ImageApi from '../image'
 
 type SliderProps = {
   type: ProjectTypeSchema

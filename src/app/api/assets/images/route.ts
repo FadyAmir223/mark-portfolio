@@ -10,10 +10,10 @@ import { ASSETS, SEARCH_PARAMS } from '@/utils/constants'
 /**
  * TODO
  *
- * Vercel takes this new image, "tags" it (via URL or image hash), and stores that tag in its cache
- * Vercel serves this newly created image over its Edge network (CDN)
+ * take this new image, "tags" it (via URL or image hash), and stores that tag in its cache
+ * serve this newly created image over its Edge network (CDN)
  *
- * Vercel finds the image in its cache and serves via CDN without doing anything else
+ * find the image in its cache and serves via CDN without doing anything else
  */
 
 export async function GET(request: NextRequest) {
@@ -51,7 +51,7 @@ export async function GET(request: NextRequest) {
   try {
     const imageBuffer = await fs.readFile(originalPath)
 
-    let image = sharp(imageBuffer).jpeg({ quality })
+    let image = sharp(imageBuffer).webp({ quality })
     if (width > 0) image = image.resize({ width })
 
     await image.toFile(cachedPath)

@@ -42,3 +42,6 @@ docker network create --ingress --driver overlay ingress
 
 npm run docker:prod:up
 ```
+
+## Disclosures
+it's recommended to use a dedicated content platform for video because video files are large and can lead to excessive bandwidth usage
