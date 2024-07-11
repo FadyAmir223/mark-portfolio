@@ -23,7 +23,6 @@ export default function Layout({
           src={background}
           alt='background'
           className='object-cover'
-          placeholder='blur'
           quality={100}
           sizes='100vw'
           fill

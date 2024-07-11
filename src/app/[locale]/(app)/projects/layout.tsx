@@ -23,7 +23,7 @@ export default function ProjectLayout({
         <p className='sm:text-lg md:text-xl'>{t('desc')}</p>
       </div>
 
-      <div className='mx-auto mb-8 flex w-fit flex-wrap gap-x-3'>
+      <div className='mx-auto mb-8 flex w-fit flex-wrap justify-center gap-3'>
         <StylesNav locale={locale} />
       </div>
 

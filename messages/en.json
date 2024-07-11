@@ -52,7 +52,7 @@
         "desc": "Japandi style blends Japanese 'Wabi-Sabi' with Scandinavian design. It favors natural materials like cotton, wool, and rattan, with neutral and warm colors, avoiding bright tones. Black is a key element. Minimal clutter, respect for nature, and a mix of natural and industrial lighting are essential. Handcrafted items like crochet and pottery add artistic touches. Plants connect with nature indoors."
       },
       {
-        "key": "Wabi Sabi",
+        "key": "Wabi-Sabi",
         "name": "Wabi Sabi",
         "desc": "Wabi-Sabi style embodies simplicity, tranquility, and harmony with nature. It uses earthy colors inspired by nature and natural materials like clay, stone, and wood. Natural lighting is essential, with warm industrial lighting for coziness. Accessories include pottery vases and candles, while plants play a vital role. Walls can be made of rough concrete, stone, wood, or textured wallpaper. Flooring can be aged wood or matte gray ceramic. Linen or cotton textiles are preferred, and curtains are optional if there's a natural view."
       },
@@ -77,7 +77,7 @@
         "desc": "The Mediterranean style is inspired by the beauty of the Mediterranean Sea, with calming colors like white and blue, wooden or stone floors, comfortable and low furniture, and the use of natural materials like wicker and kilim. The design allows for natural light and views, with minimal need for curtains unless privacy is necessary."
       },
       {
-        "key": "New Classic",
+        "key": "New-Classic",
         "name": "New Classic",
         "desc": "The Neoclassical style combines classic and modern elements, exuding luxury and elegance, suitable for any era. Key features include light and neutral colors, parquet or marble floors, wall panels with intricate details, symmetry, golden accents in accessories and furniture, wooden wall decorations, layered curtains, and art pieces on the walls."
       },
@@ -102,7 +102,7 @@
         "desc": "Bohemian style is vibrant and eclectic, ideal for travel enthusiasts and free spirits. It features bright, random colors, handmade crochet items, wooden or parquet floors, patterned rugs, and walls adorned with plants, mandalas, and macramé. Light-colored wood is preferred, creating a lively, non-routine atmosphere."
       },
       {
-        "key": "Boho Chic",
+        "key": "Boho-Chic",
         "name": "Boho Chic",
         "desc": "Boho Chic style embraces earthy tones, natural materials, and handcrafted elements for a non-traditional and psychologically comforting living space. Incorporate colors inspired by nature, like beige, yellow, blue, turquoise, terracotta, and red, along with hardwood or HDF flooring. Furniture features light-colored wood and bamboo elements, complemented by handmade textiles like crochet and rustic patterns. Low-seated chairs or floor cushions add to the distinctive charm. Wooden ceiling panels and jute-based chandeliers enhance the rustic feel. Don't forget to include plants for a complete Boho Chic ambiance."
       },
@@ -112,7 +112,7 @@
         "desc": "Contemporary style combines simplicity and elegance with a touch of vibrancy. It features white, black, beige, gray, and brown colors, with shiny ceramic or porcelain floors and simple rugs. Walls may have large paintings or wallpaper, with light, simple curtains. Furniture is sleek, low, and exposed-legged, using velvet, linen, or wool fabrics."
       },
       {
-        "key": "Art Deco",
+        "key": "Art-Deco",
         "name": "Art Deco",
         "desc": "Art Deco style combines luxury and elegance with geometric details inspired by civilizations like the Egyptian. It features neutral colors, gold, silver, beige, reddish-brown, and pastel shades. Wallpaper is extensively used. The modern interpretation is very chic."
       },

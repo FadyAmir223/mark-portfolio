@@ -10,7 +10,7 @@ import { cn } from '@/utils/cn'
 
 const navs = [
   { label: 'home', url: '/', icon: AiFillHome },
-  { label: 'projects', url: '/projects/commercial', icon: FaBuildingWheat },
+  { label: 'projects', url: '/projects/residential', icon: FaBuildingWheat },
   { label: 'contact', url: '/contact', icon: FaPhoneSquareAlt },
 ]
 

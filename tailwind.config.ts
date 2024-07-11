@@ -76,6 +76,8 @@ const config = {
   },
   plugins: [
     require('tailwindcss-animate'),
+    require('tailwindcss-debug-screens'),
+    require('tailwindcss-brand-colors'),
     require('tailwind-scrollbar')({
       nocompatible: true,
       preferredStrategy: 'pseudoelements',

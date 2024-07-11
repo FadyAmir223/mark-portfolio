@@ -1,10 +1,11 @@
 import type { Metadata } from 'next'
 import Image from 'next/image'
+import Link from 'next/link'
 import { useTranslations } from 'next-intl'
 import { unstable_setRequestLocale } from 'next-intl/server'
 
 import H2 from '@/components/h2'
-import type { TLocale } from '@/types/custom'
+import type { TLocale, TProjects } from '@/types/custom'
 
 export const metadata: Metadata = {
   title: 'Decoration Styles',
@@ -23,24 +24,19 @@ export default function Styles({ params: { locale } }: StylesProps) {
   const t = useTranslations('Styles')
 
   return (
-    <div className='container pb-12 pt-20'>
+    <div className='container py-12'>
       <H2>{t('title')}</H2>
 
       <ul className='grid grid-cols-1 gap-5 md:grid-cols-2'>
-        {(
-          t.raw('types') as {
-            key: string
-            name: string
-            desc: string
-          }[]
-        ).map(({ key, name, desc }) => {
+        {(t.raw('types') as TProjects).map(({ key, name, desc }) => {
           const styleWord =
             locale === 'en' ? `${name} ${t('style')}` : `${t('style')} ${name}`
 
           return (
-            <li
+            <Link
               key={key}
-              className='group relative h-[230px] overflow-hidden rounded-md border-2 border-primary transition-transform duration-500 hover:scale-105 sm:h-[275px] md:h-[315px] lg:h-[410px]'
+              href={`/${locale}/styles/${key}`}
+              className='group relative aspect-[971/692] overflow-hidden rounded-md border-2 border-primary transition-transform duration-500 hover:scale-105'
             >
               <Image
                 src={`/assets/images/style-types/${key.replace(' ', '-')}.webp`}
@@ -58,7 +54,7 @@ export default function Styles({ params: { locale } }: StylesProps) {
                   {desc}
                 </p>
               </div>
-            </li>
+            </Link>
           )
         })}
       </ul>

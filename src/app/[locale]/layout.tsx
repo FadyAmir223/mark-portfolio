@@ -9,6 +9,7 @@ import {
 
 import Header from '@/components/header/header'
 import { Toaster } from '@/components/ui/toaster'
+import { env } from '@/lib/env'
 import type { TLocale } from '@/types/custom'
 import { cn } from '@/utils/cn'
 import { locales } from '@/utils/constants'
@@ -29,7 +30,7 @@ export async function generateMetadata({
   const meta = {
     title: 'M arc',
     description: t('metadata.desc'),
-    image: '/images/logo-full.webp',
+    image: '/assets/images/logo-full.webp',
   }
 
   return {
@@ -41,17 +42,40 @@ export async function generateMetadata({
     openGraph: {
       title: meta.title,
       description: meta.description,
-      locale,
+      url: env.NEXT_PUBLIC_SITE_URL,
+      locale: { en: 'en_US', ar: 'ar_EG' }[locale],
       siteName: meta.title,
       type: 'website',
-      images: [{ url: meta.image }],
+      images: [
+        {
+          url: env.NEXT_PUBLIC_SITE_URL + meta.image,
+          alt: `${meta.title} logo`,
+          width: 900,
+          height: 1050,
+        },
+      ],
     },
     twitter: {
       title: meta.title,
       description: meta.description,
-      images: meta.image,
+      images: env.NEXT_PUBLIC_SITE_URL + meta.image,
       card: 'summary_large_image',
+      creator: '@marc_eg',
     },
+    alternates: {
+      canonical: env.NEXT_PUBLIC_SITE_URL,
+      languages: {
+        'en-US': `${env.NEXT_PUBLIC_SITE_URL}/en`,
+        'ar-EG': `${env.NEXT_PUBLIC_SITE_URL}/ar`,
+      },
+    },
+    verification: {
+      google: 'google',
+      yandex: 'yandex',
+      yahoo: 'yahoo',
+    },
+    assets: `${env.NEXT_PUBLIC_SITE_URL}/assets`,
+    category: 'Architecture and Construction',
   }
 }
 
@@ -80,6 +104,7 @@ export default async function Layout({
         className={cn(
           roboto.className,
           'flex min-h-screen flex-col bg-[#22272D] text-[#F1F1F1] overflow-x-hidden',
+          process.env.NODE_ENV === 'development' && 'debug-screens',
         )}
       >
         <NextIntlClientProvider messages={messages}>
